@@ -50,11 +50,11 @@ public class PanAndZoomCamera : MonoBehaviour
         Vector3 dir = Vector3.zero;
         if(y >= Screen.height * .95f)
         {
-            dir.z += 1f;
+            dir.y += 1f;
         }
         else if(y <= Screen.height * .05f)
         {
-            dir.z -= 1f;
+            dir.y -= 1f;
         }
 
         if (x >= Screen.width * .95f)

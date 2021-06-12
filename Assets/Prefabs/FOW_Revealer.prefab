@@ -43,6 +43,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOW_Player_Circles (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1642087960444362785, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087960444362785, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087960444362785, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087960444362785, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087960444362785, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087961327436518, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087961327436518, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087961327436518, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087961327436518, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642087961327436518, guid: e294350f4834ade47af951554ae05521,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6223716972064111890, guid: e294350f4834ade47af951554ae05521,
         type: 3}
       propertyPath: m_RootOrder
