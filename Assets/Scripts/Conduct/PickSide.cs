@@ -19,6 +19,9 @@ public class PickSide : MonoBehaviour
 	private SteeredMover mover;
 	private Facing facing = Facing.None;
 
+	private float switchDelay = 0.5f;
+	private float untilSwitch = 0;
+
 	private void Start()
 	{
 		anim = GetComponent<Animator>();
@@ -27,44 +30,51 @@ public class PickSide : MonoBehaviour
 
 	private void Update()
 	{
-		var compass = mover.Compass;
-		if (Mathf.Abs(compass.up.x) > Mathf.Abs(compass.up.y))
+		untilSwitch -= Time.deltaTime;
+
+		if (untilSwitch <= 0)
 		{
-			if (compass.up.x > 0)
+			var compass = mover.Compass;
+			if (Mathf.Abs(compass.up.x) > Mathf.Abs(compass.up.y))
 			{
-				if (facing != Facing.Right)
+				if (compass.up.x > 0)
 				{
-					anim.SetTrigger("Walk_Right");
-					facing = Facing.Right;
+					if (facing != Facing.Right)
+					{
+						anim.SetTrigger("Walk_Right");
+						facing = Facing.Right;
+					}
+				}
+				else
+				{
+					if (facing != Facing.Left)
+					{
+						anim.SetTrigger("Walk_Left");
+						facing = Facing.Left;
+					}
 				}
 			}
 			else
 			{
-				if (facing != Facing.Left)
+				if (compass.up.y > 0)
 				{
-					anim.SetTrigger("Walk_Left");
-					facing = Facing.Left;
+					if (facing != Facing.Up)
+					{
+						anim.SetTrigger("Walk_Up");
+						facing = Facing.Up;
+					}
+				}
+				else
+				{
+					if (facing != Facing.Down)
+					{
+						anim.SetTrigger("Walk_Down");
+						facing = Facing.Down;
+					}
 				}
 			}
-		}
-		else
-		{
-			if (compass.up.y > 0)
-			{
-				if (facing != Facing.Up)
-				{
-					anim.SetTrigger("Walk_Up");
-					facing = Facing.Up;
-				}
-			}
-			else
-			{
-				if (facing != Facing.Down)
-				{
-					anim.SetTrigger("Walk_Down");
-					facing = Facing.Down;
-				}
-			}
+
+			untilSwitch = switchDelay;
 		}
 	}
 }
