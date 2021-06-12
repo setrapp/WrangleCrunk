@@ -1,5 +1,8 @@
 using UnityEngine;
 using Cinemachine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class PanAndZoomCamera : MonoBehaviour
 {
@@ -26,12 +29,12 @@ public class PanAndZoomCamera : MonoBehaviour
         float y = input.GetAxisValue(1);
         float z = input.GetAxisValue(2);
 
-        if(x != 0 || y != 0)
+        if (x != 0 || y != 0)
         {
             PanCamera(x, y);
         }
 
-        if(z != 0)
+        if (z != 0)
         {
             ZoomCamera(z);
         }
@@ -40,7 +43,7 @@ public class PanAndZoomCamera : MonoBehaviour
 
     public void ZoomCamera(float z)
     {
-        float newZoom = vCam.m_Lens.OrthographicSize + z * zoomSpeed * Time.deltaTime;
+        float newZoom = vCam.m_Lens.OrthographicSize - z * zoomSpeed * Time.deltaTime;
         vCam.m_Lens.OrthographicSize = Mathf.Clamp(newZoom, minZoom, maxZoom);
 
     }
@@ -50,11 +53,11 @@ public class PanAndZoomCamera : MonoBehaviour
         Vector3 dir = Vector3.zero;
         if(y >= Screen.height * .95f)
         {
-            dir.z += 1f;
+            dir.y += 1f;
         }
         else if(y <= Screen.height * .05f)
         {
-            dir.z -= 1f;
+            dir.y -= 1f;
         }
 
         if (x >= Screen.width * .95f)
@@ -73,6 +76,23 @@ public class PanAndZoomCamera : MonoBehaviour
 
     public void PanCamera(float x, float y)
     {
+        bool mouseOnScreen = true;
+#if UNITY_EDITOR
+        mouseOnScreen = !(Input.mousePosition.x <= 0
+                        || Input.mousePosition.y <= 0
+                        || Input.mousePosition.x >= Handles.GetMainGameViewSize().x - 1
+                        || Input.mousePosition.y >= Handles.GetMainGameViewSize().y - 1);
+#else
+        mouseOnScreen = !(Input.mousePosition.x <= 0
+                        || Input.mousePosition.y == 0
+                        || Input.mousePosition.x >= Screen.width - 1
+                        || Input.mousePosition.y >= Screen.height - 1);
+#endif
+        if (!mouseOnScreen)
+        {
+            return;
+        }
+
         Vector3 direction = PanDirection(x, y);
         camTrans.position = Vector3.Lerp(camTrans.position, camTrans.position + direction * panSpeed, Time.deltaTime);
     }

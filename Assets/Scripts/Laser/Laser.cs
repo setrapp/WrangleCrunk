@@ -16,19 +16,26 @@ public class Laser : MonoBehaviour
 	[SerializeField] private float maxCharge = 100;
 	[SerializeField] private float chargeRate = 50;
 	[SerializeField] private float dischargeRate = 10;
+	[SerializeField] private float chargeDelay = 5f;
 
 	[SerializeField] private UnityEvent OnActivate = null;
 	[SerializeField] private UnityEvent OnDeactivate = null;
+
+	private BatteryLifeGradient batteryLifeGradient;
+	private float lastTimeDischarged = 0f;
+
 
 	private void Start()
 	{
 		Instance = this;
 		charge = maxCharge;
+		batteryLifeGradient = FindObjectOfType<BatteryLifeGradient>();
+		lastTimeDischarged = Time.time;
 	}
 
 	private void Update()
 	{
-		if ((Input.GetMouseButton(0) || Input.touches.Length > 0))
+		if ((Input.GetMouseButton(0) || Input.touches.Length > 0) && charge > 0)
 		{
 			if (!activated)
 			{
@@ -36,7 +43,8 @@ public class Laser : MonoBehaviour
 				OnActivate.Invoke();
 			}
 
-			charge = Mathf.Max(charge - (dischargeRate * Time.deltaTime), 0);
+			lastTimeDischarged = Time.time;
+			setCharge(Mathf.Max(charge - (dischargeRate * Time.deltaTime), 0));
 		}
 		else
 		{
@@ -45,8 +53,20 @@ public class Laser : MonoBehaviour
 				activated = false;
 				OnDeactivate.Invoke();
 			}
-
-			charge = Mathf.Min(charge + (chargeRate * Time.deltaTime), maxCharge);
+			
+			if(Time.time - lastTimeDischarged > chargeDelay)
+            {
+				setCharge(Mathf.Min(charge + (chargeRate * Time.deltaTime), maxCharge));
+			}
 		}
+	}
+
+	private void setCharge(float val)
+	{
+		charge = val;
+		if(batteryLifeGradient != null)
+        {
+			batteryLifeGradient.SetFill(val / maxCharge);
+        }
 	}
 }
