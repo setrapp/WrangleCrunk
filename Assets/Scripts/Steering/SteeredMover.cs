@@ -21,7 +21,7 @@ public class SteeredMover : MonoBehaviour
 	private Vector3 sideAxis => Vector3.Cross(forwardAxis, up);
 
 	[SerializeField] private MoveStats defaultStats;
-	private MoveStats stats;
+	[SerializeField] private MoveStats stats;
 	private bool moving;
 
 	private Vector3 externalForce = Vector3.zero;
@@ -58,11 +58,6 @@ public class SteeredMover : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		/*var laser = Laser.Instance;
-		var laserPos = laser.transform.position;
-		var toLaser = laserPos - transform.position;
-		bool chase = laser.Activated && toLaser.sqrMagnitude > Helper.Epsilon;*/
-
 		// Combine steering behaviors to compute destination relative to current position.
 		Vector3 destination = Vector3.zero;
 		float weightSum = 0;
@@ -156,15 +151,18 @@ public class SteeredMover : MonoBehaviour
 			}
 		}
 
-		if (body.velocity.sqrMagnitude > stats.maxSpeed * stats.maxSpeed)
+		/*if (body.velocity.sqrMagnitude > stats.maxSpeed * stats.maxSpeed)
 		{
 			body.velocity = body.velocity.normalized * stats.maxSpeed;
-		}
+		}*/
+
+		bool aboveMaxSpeed = body.velocity.sqrMagnitude > stats.maxSpeed * stats.maxSpeed;
 
 		body.AddForce(externalForce, ForceMode.Impulse);
 
-		// If not moving forward, apply overall drag.
-		if (!attemptingForward && externalForce.sqrMagnitude < Helper.Epsilon)
+
+		// If not moving forward or moving too fast, apply overall drag.
+		if ((!attemptingForward || aboveMaxSpeed) && externalForce.sqrMagnitude < Helper.Epsilon)
 		{
 			body.velocity *= stats.overallDrag;
 		}

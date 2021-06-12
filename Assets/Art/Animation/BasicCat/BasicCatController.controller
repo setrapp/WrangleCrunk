@@ -192,7 +192,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Walk_Left
     m_Type: 9
@@ -210,7 +210,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: Idle
     m_Type: 9
@@ -264,7 +264,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Walk_Left
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8349875617035374297}
   m_Solo: 0
@@ -341,7 +344,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -2345273593510705440}
-    m_Position: {x: -280, y: 390, z: 0}
+    m_Position: {x: -310, y: 450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1587609958151508186}
     m_Position: {x: 250, y: 280, z: 0}
