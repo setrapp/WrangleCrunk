@@ -5,14 +5,15 @@ using UnityEngine;
 public class FogOfWarCulling : MonoBehaviour
 {
     public float lineOfSight;
+    public SpriteRenderer mainSprite;
+    public SpriteRenderer minimapSprite;
 
     private bool spriteRevealed = false;
-    private SpriteRenderer sprite;
+    
     private Transform playerTransform;
 
     private void Start()
     {
-        sprite = this.GetComponent<SpriteRenderer>();
         GameObject obj = GameObject.FindGameObjectWithTag("Player");
         if(obj != null)
         {
@@ -39,13 +40,15 @@ public class FogOfWarCulling : MonoBehaviour
 
     private void cull()
     {
-        sprite.enabled = false;
+        mainSprite.enabled = false;
+        minimapSprite.enabled = false;
         spriteRevealed = false;
     }
 
     private void reveal()
     {
-        sprite.enabled = true;
+        mainSprite.enabled = true;
+        minimapSprite.enabled = true;
         spriteRevealed = true;
     }
 }
