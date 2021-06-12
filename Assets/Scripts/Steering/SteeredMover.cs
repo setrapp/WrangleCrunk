@@ -32,6 +32,9 @@ public class SteeredMover : MonoBehaviour
 
 	[SerializeField] private float maxDestinationDistance = 100;
 
+	[SerializeField] public Transform Compass = null;
+
+
 	// TODO This might be expensive for many instances. Maybe just register listeners without events.
 	public UnityEvent OnMoveBegin = null;
 	public UnityEvent OnMoveEnd = null;
@@ -40,6 +43,10 @@ public class SteeredMover : MonoBehaviour
 	{
 		body = GetComponent<Rigidbody>();
 		stats = defaultStats;
+		if (Compass == null)
+		{
+			Compass = transform;
+		}
 	}
 
 	public void RegisterSteering(SteeringBehavior steering)
@@ -120,16 +127,16 @@ public class SteeredMover : MonoBehaviour
 			var lookAt = destination.normalized;
 
 			// Arc Cosine is only define in [-1, 1] so prevent Dot Product from rounding error past that.
-			var cos = Mathf.Min(Vector3.Dot(transform.up, lookAt), 1);
+			var cos = Mathf.Min(Vector3.Dot(Compass.up, lookAt), 1);
 			var angle = Mathf.Acos(cos) * Mathf.Rad2Deg;
 
-			if (Vector3.Dot(transform.right, lookAt) > 0)
+			if (Vector3.Dot(Compass.right, lookAt) > 0)
 			{
 				angle *= -1;
 			}
 
 			// If attempting to turn around completly, randomly choose a direction to turn.
-			if (Mathf.Abs(Vector3.Dot(transform.up, lookAt) + 1) < Helper.Epsilon
+			if (Mathf.Abs(Vector3.Dot(Compass.up, lookAt) + 1) < Helper.Epsilon
 			    && Random.Range(0f, 1f) < 0.5f)
 			{
 				angle = -180;
@@ -141,9 +148,9 @@ public class SteeredMover : MonoBehaviour
 				angle = angle > 0 ? maxTurn : -maxTurn;
 			}
 
-			angle += transform.rotation.eulerAngles.z;
+			angle += Compass.rotation.eulerAngles.z;
 
-			transform.rotation = Quaternion.AngleAxis(angle, up);
+			Compass.rotation = Quaternion.AngleAxis(angle, up);
 
 			if (attemptingForward)
 			{
@@ -151,15 +158,9 @@ public class SteeredMover : MonoBehaviour
 			}
 		}
 
-		/*if (body.velocity.sqrMagnitude > stats.maxSpeed * stats.maxSpeed)
-		{
-			body.velocity = body.velocity.normalized * stats.maxSpeed;
-		}*/
-
 		bool aboveMaxSpeed = body.velocity.sqrMagnitude > stats.maxSpeed * stats.maxSpeed;
 
 		body.AddForce(externalForce, ForceMode.Impulse);
-
 
 		// If not moving forward or moving too fast, apply overall drag.
 		if ((!attemptingForward || aboveMaxSpeed) && externalForce.sqrMagnitude < Helper.Epsilon)
@@ -167,7 +168,7 @@ public class SteeredMover : MonoBehaviour
 			body.velocity *= stats.overallDrag;
 		}
 
-		var forwardVelocity = Vector3.Project(body.velocity, transform.up);
+		var forwardVelocity = Vector3.Project(body.velocity, Compass.up);
 		var sideVelocity = body.velocity - forwardVelocity;
 
 		// If moving forward apply side-only drag to better align with direction we want to be going.
@@ -190,8 +191,8 @@ public class SteeredMover : MonoBehaviour
 	{
 		// TODO Check for flags that could prevent or force movement.
 
-		var constrainedMove = Vector3.Project(attemptedMove, transform.up);
-		if (Vector3.Dot(constrainedMove, transform.up) < 0)
+		var constrainedMove = Vector3.Project(attemptedMove, Compass.up);
+		if (Vector3.Dot(constrainedMove, Compass.up) < 0)
 		{
 			constrainedMove = Vector3.zero;
 		}
@@ -218,7 +219,7 @@ public class SteeredMover : MonoBehaviour
 
 		if (forwardParallel)
 		{
-			relevantForce = Vector3.Project(relevantForce, transform.forward);
+			relevantForce = Vector3.Project(relevantForce, Compass.up);
 		}
 
 		externalForce += relevantForce;

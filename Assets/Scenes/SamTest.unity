@@ -1243,7 +1243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &493940528
 Transform:
   m_ObjectHideFlags: 0
@@ -2643,7 +2643,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 30
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3558,6 +3558,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1933228258956000753, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829654029321219929, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0

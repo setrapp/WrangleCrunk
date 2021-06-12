@@ -8,7 +8,7 @@ public abstract class SteeringBehavior : MonoBehaviour
 	[SerializeField] private float weight = 1;
 	public float Weight => weight;
 	private float defaultWeight = 1;
-	private SteeredMover mover = null;
+	protected SteeredMover mover = null;
 
 	void Start()
 	{
