@@ -25,9 +25,18 @@ public abstract class SteeringBehavior : MonoBehaviour
 		}
 	}
 
+	protected abstract Vector3 computeDestinationRelative();
+
 	/// <summary>
 	/// Determine the desired location to steer towards.
 	/// </summary>
 	/// <returns>Destination relative to current position, zero vector is no change.</returns>
-	public abstract Vector3 ComputeDestinationRelative();
+	public Vector3 ComputeDestinationRelative()
+	{
+		if (enabled)
+		{
+			return computeDestinationRelative();
+		}
+		return Vector3.zero;
+	}
 }

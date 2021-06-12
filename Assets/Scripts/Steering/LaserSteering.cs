@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserSteering : SteeringBehavior
 {
-	public override Vector3 ComputeDestinationRelative()
+	protected override Vector3 computeDestinationRelative()
 	{
 		var destination = Vector3.zero;
 		var laser = Laser.Instance;
