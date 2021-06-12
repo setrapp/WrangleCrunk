@@ -123,6 +123,11 @@ public class SteeredMover : MonoBehaviour
 		body.velocity = forwardVelocity + sideVelocity;
 
 		externalForce = Vector3.zero;
+
+		// Stay on the plane
+		body.velocity = new Vector3(body.velocity.x, body.velocity.y, 0);
+		transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
+
 	}
 
 	private Vector3 ConstrainMove(Vector3 attemptedMove)
