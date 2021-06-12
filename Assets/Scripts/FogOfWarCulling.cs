@@ -5,11 +5,11 @@ using UnityEngine;
 public class FogOfWarCulling : MonoBehaviour
 {
     public float lineOfSight;
-    public SpriteRenderer mainSprite;
+    public GameObject hideOnCull;
     public SpriteRenderer minimapSprite;
 
     private bool spriteRevealed = false;
-    
+
     private Transform playerTransform;
 
     private void Start()
@@ -19,13 +19,18 @@ public class FogOfWarCulling : MonoBehaviour
         {
             playerTransform = obj.transform;
         }
+
+        if(withinLineOfSight())
+        {
+            reveal();
+        }
     }
 
     void Update()
     {
         if(spriteRevealed && !withinLineOfSight())
         {
-            cull();    
+            cull();
         }
         else if(!spriteRevealed && withinLineOfSight())
         {
@@ -40,14 +45,14 @@ public class FogOfWarCulling : MonoBehaviour
 
     private void cull()
     {
-        mainSprite.enabled = false;
+        hideOnCull.SetActive(false);
         minimapSprite.enabled = false;
         spriteRevealed = false;
     }
 
     private void reveal()
     {
-        mainSprite.enabled = true;
+        hideOnCull.SetActive(true);
         minimapSprite.enabled = true;
         spriteRevealed = true;
     }
