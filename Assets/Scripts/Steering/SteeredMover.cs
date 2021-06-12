@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class SteeredMover : MonoBehaviour
 {
 	enum PlaneComponent
@@ -14,9 +14,8 @@ public class SteeredMover : MonoBehaviour
 		Normal
 	}
 
-	// TODO Rigidbody with collisions might get expensive over many instances. Is RigidBody usefully faster
-	private Rigidbody body = null;
-	public Rigidbody Body => Body;
+	private Rigidbody2D body = null;
+	public Rigidbody2D Body => Body;
 
 	private Vector3 up => Vector3.forward;
 	private Vector3 forwardAxis => Vector3.Cross(up, Vector3.right);
@@ -45,7 +44,7 @@ public class SteeredMover : MonoBehaviour
 
 	private void Start()
 	{
-		body = GetComponent<Rigidbody>();
+		body = GetComponent<Rigidbody2D>();
 		stats = defaultStats;
 		if (Compass == null)
 		{
@@ -164,7 +163,7 @@ public class SteeredMover : MonoBehaviour
 
 		bool aboveMaxSpeed = body.velocity.sqrMagnitude > stats.maxSpeed * stats.maxSpeed;
 
-		body.AddForce(externalForce, ForceMode.Impulse);
+		body.AddForce(externalForce, ForceMode2D.Impulse);
 
 		// If not moving forward or moving too fast, apply overall drag.
 		if ((!attemptingForward || aboveMaxSpeed) && externalForce.sqrMagnitude < Helper.Epsilon)
@@ -172,7 +171,7 @@ public class SteeredMover : MonoBehaviour
 			body.velocity *= stats.overallDrag;
 		}
 
-		var forwardVelocity = Vector3.Project(body.velocity, Compass.up);
+		var forwardVelocity = (Vector2)Vector3.Project(body.velocity, Compass.up);
 		var sideVelocity = body.velocity - forwardVelocity;
 
 		// If moving forward apply side-only drag to better align with direction we want to be going.
