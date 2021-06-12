@@ -64,3 +64,11 @@ crashlytics-build.properties
 
 # Explictly single user content (editor extension plug-ins, builds, etc)
 *NoCommit* 
+.idea/.idea.wranglecrunk/riderModule.iml
+.idea/.idea.wranglecrunk/.idea/.idea.wranglecrunk.iml
+.idea/.idea.wranglecrunk/.idea/encodings.xml
+.idea/.idea.wranglecrunk/.idea/indexLayout.xml
+.idea/.idea.wranglecrunk/.idea/misc.xml
+.idea/.idea.wranglecrunk/.idea/modules.xml
+.idea/.idea.wranglecrunk/.idea/projectSettingsUpdater.xml
+.idea/.idea.wranglecrunk/.idea/vcs.xml
