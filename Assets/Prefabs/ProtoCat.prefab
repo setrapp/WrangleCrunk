@@ -263,7 +263,7 @@ MonoBehaviour:
     sideDrag: 0.95
   sprintChance: 0.4
   walkUpdateDelay: 2
-  sprintUpdateDelay: 0.3
+  sprintUpdateDelay: 1
 --- !u!114 &8562285444685616289
 MonoBehaviour:
   m_ObjectHideFlags: 0

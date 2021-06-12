@@ -19,7 +19,7 @@ public class PickSide : MonoBehaviour
 	private SteeredMover mover;
 	private Facing facing = Facing.None;
 
-	private float switchDelay = 0.5f;
+	private float switchDelay = 0.3f;
 	private float untilSwitch = 0;
 
 	private void Start()
@@ -34,10 +34,10 @@ public class PickSide : MonoBehaviour
 
 		if (untilSwitch <= 0)
 		{
-			var compass = mover.Compass;
-			if (Mathf.Abs(compass.up.x) > Mathf.Abs(compass.up.y))
+			var heading = mover.moveDirection;
+			if (Mathf.Abs(heading.x) > Mathf.Abs(heading.y))
 			{
-				if (compass.up.x > 0)
+				if (heading.x > 0)
 				{
 					if (facing != Facing.Right)
 					{
@@ -56,7 +56,7 @@ public class PickSide : MonoBehaviour
 			}
 			else
 			{
-				if (compass.up.y > 0)
+				if (heading.y > 0)
 				{
 					if (facing != Facing.Up)
 					{

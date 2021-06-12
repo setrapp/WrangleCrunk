@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 public class SteeredMover : MonoBehaviour
@@ -33,6 +35,8 @@ public class SteeredMover : MonoBehaviour
 	[SerializeField] private float maxDestinationDistance = 100;
 
 	[SerializeField] public Transform Compass = null;
+
+	[NonSerialized] public Vector3 moveDirection = Vector3.up;
 
 
 	// TODO This might be expensive for many instances. Maybe just register listeners without events.
@@ -101,27 +105,6 @@ public class SteeredMover : MonoBehaviour
 			destination += steeringRequest;
 		}
 
-
-		var moveForward = ConstrainMove(destination);
-		bool attemptingForward = moveForward.sqrMagnitude > Helper.Epsilon;
-
-		if (attemptingForward)
-		{
-			if (!moving)
-			{
-				moving = true;
-				OnMoveBegin.Invoke();
-			}
-		}
-		else
-		{
-			if (moving)
-			{
-				moving = false;
-				OnMoveEnd.Invoke();
-			}
-		}
-
 		if (destination.sqrMagnitude > Helper.Epsilon)
 		{
 			var lookAt = destination.normalized;
@@ -151,11 +134,32 @@ public class SteeredMover : MonoBehaviour
 			angle += Compass.rotation.eulerAngles.z;
 
 			Compass.rotation = Quaternion.AngleAxis(angle, up);
+		}
 
-			if (attemptingForward)
+		var moveForward = ConstrainMove(destination);
+		bool attemptingForward = moveForward.sqrMagnitude > Helper.Epsilon;
+
+		if (attemptingForward)
+		{
+			if (!moving)
 			{
-				body.AddForce(moveForward);
+				moving = true;
+				OnMoveBegin.Invoke();
 			}
+		}
+		else
+		{
+			if (moving)
+			{
+				moving = false;
+				OnMoveEnd.Invoke();
+			}
+		}
+
+		if (attemptingForward)
+		{
+			body.AddForce(moveForward);
+			moveDirection = moveForward;
 		}
 
 		bool aboveMaxSpeed = body.velocity.sqrMagnitude > stats.maxSpeed * stats.maxSpeed;

@@ -26,7 +26,7 @@ public class WanderSteering : SteeringBehavior
 	private void UpdateDestination(float angleFactor = 1)
 	{
 		var changeAngle = Random.Range(-maxChangeAngle * angleFactor, maxChangeAngle * angleFactor);
-		cachedDestination = Quaternion.Euler(0, 0, changeAngle) * transform.up;
+		cachedDestination = Quaternion.Euler(0, 0, changeAngle) * mover.Compass.up;
 		cachedDestination *= destinationDistance;
 		untilChange = changeDelay;
 
@@ -37,8 +37,8 @@ public class WanderSteering : SteeringBehavior
 		if (mover != null)
 		{
 			// Reset wander destination to current heading when woken up, to prevent always turning around.
-			cachedDestination = mover.Compass.up * destinationDistance;
-			UpdateDestination(0.25f);
+			cachedDestination = mover.moveDirection * destinationDistance;
+			UpdateDestination(1);
 		}
 	}
 }
