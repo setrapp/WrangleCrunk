@@ -37,15 +37,15 @@ public class SteeredMover : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		// TODO remove controls from input
-		//var forwardInput = Input.GetAxis("Vertical");
-		//var sideInput = Input.GetAxis("Horizontal");
+		var laser = Laser.Instance;
+		var laserPos = laser.transform.position;
+		var toLaser = laserPos - transform.position;
+		bool chase = laser.Activated && toLaser.sqrMagnitude > Helper.Epsilon;
 
-		var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		var toMouse = mousePos - transform.position;
+		var moveForward = ConstrainMove(toLaser);
+		bool attemptingMove = moveForward.sqrMagnitude > Helper.Epsilon;
 
-
-		if (toMouse.sqrMagnitude > Helper.Epsilon)//Mathf.Abs(sideInput) > Helper.Epsilon || Mathf.Abs(forwardInput) > Helper.Epsilon)
+		if (chase)
 		{
 			if (!moving)
 			{
@@ -62,12 +62,14 @@ public class SteeredMover : MonoBehaviour
 			}
 		}
 
-		//var internalForce = ((transform.right * sideInput) + (transform.up * forwardInput)).normalized * stats.acceleration;
-
-		if (toMouse.sqrMagnitude > 0)
+		if (chase)
 		{
-			var lookAt = toMouse.normalized;
-			var angle = Mathf.Acos(Vector3.Dot(transform.up, lookAt)) * Mathf.Rad2Deg;
+			var lookAt = toLaser.normalized;
+
+			// Arc Cosine is only define in [-1, 1] so prevent Dot Product from rounding error past that.
+			var cos = Mathf.Min(Vector3.Dot(transform.up, lookAt), 1);
+			var angle = Mathf.Acos(cos) * Mathf.Rad2Deg;
+
 			if (Vector3.Dot(transform.right, lookAt) > 0)
 			{
 				angle *= -1;
@@ -85,17 +87,15 @@ public class SteeredMover : MonoBehaviour
 			{
 				angle = angle > 0 ? maxTurn : -maxTurn;
 			}
+
 			angle += transform.rotation.eulerAngles.z;
 
 			transform.rotation = Quaternion.AngleAxis(angle, up);
-		}
 
-		var moveForward = ConstrainMove(toMouse);
-		bool attemptingMove = moveForward.sqrMagnitude > Helper.Epsilon;
-		if (attemptingMove)
-		{
-			//Debug.Log(internalForce);
-			body.AddForce(moveForward);
+			if (attemptingMove)
+			{
+				body.AddForce(moveForward);
+			}
 		}
 
 		if (body.velocity.sqrMagnitude > stats.maxSpeed * stats.maxSpeed)
