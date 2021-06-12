@@ -5,7 +5,9 @@ using UnityEngine;
 
 public abstract class SteeringBehavior : MonoBehaviour
 {
-	public float Weight = 1;
+	[SerializeField] private float weight = 1;
+	public float Weight => weight;
+	private float defaultWeight = 1;
 	private SteeredMover mover = null;
 
 	void Start()
@@ -15,6 +17,8 @@ public abstract class SteeringBehavior : MonoBehaviour
 		{
 			mover.RegisterSteering(this);
 		}
+
+		defaultWeight = Weight;
 	}
 
 	private void OnDestroy()
@@ -25,6 +29,16 @@ public abstract class SteeringBehavior : MonoBehaviour
 		}
 	}
 
+	public void SetWeight(float newWeight)
+	{
+		weight = newWeight;
+	}
+
+	public void ResetWeight()
+	{
+		weight = defaultWeight;
+	}
+
 	protected abstract Vector3 computeDestinationRelative();
 
 	/// <summary>
@@ -33,7 +47,7 @@ public abstract class SteeringBehavior : MonoBehaviour
 	/// <returns>Destination relative to current position, zero vector is no change.</returns>
 	public Vector3 ComputeDestinationRelative()
 	{
-		if (enabled)
+		if (enabled && gameObject.activeSelf)
 		{
 			return computeDestinationRelative();
 		}

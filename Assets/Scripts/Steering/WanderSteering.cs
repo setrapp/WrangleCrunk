@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
+using System;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
 public class WanderSteering : SteeringBehavior
@@ -18,12 +17,25 @@ public class WanderSteering : SteeringBehavior
 		untilChange -= Time.deltaTime;
 		if (untilChange <= 0)
 		{
-			untilChange = changeDelay;
-			var changeAngle = Random.Range(-maxChangeAngle, maxChangeAngle);
-			cachedDestination = Quaternion.Euler(0, 0, changeAngle) * transform.up;
-			cachedDestination *= destinationDistance;
+			UpdateDestination();
 		}
 
 		return cachedDestination;
+	}
+
+	private void UpdateDestination(float angleFactor = 1)
+	{
+		var changeAngle = Random.Range(-maxChangeAngle * angleFactor, maxChangeAngle * angleFactor);
+		cachedDestination = Quaternion.Euler(0, 0, changeAngle) * transform.up;
+		cachedDestination *= destinationDistance;
+		untilChange = changeDelay;
+
+	}
+
+	private void OnEnable()
+	{
+		// Reset wander destination to current heading when woken up, to prevent always turning around.
+		cachedDestination = transform.up * destinationDistance;
+		UpdateDestination(0.25f);
 	}
 }
