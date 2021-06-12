@@ -43,7 +43,7 @@ public class PanAndZoomCamera : MonoBehaviour
 
     public void ZoomCamera(float z)
     {
-        float newZoom = vCam.m_Lens.OrthographicSize + z * zoomSpeed * Time.deltaTime;
+        float newZoom = vCam.m_Lens.OrthographicSize - z * zoomSpeed * Time.deltaTime;
         vCam.m_Lens.OrthographicSize = Mathf.Clamp(newZoom, minZoom, maxZoom);
 
     }
