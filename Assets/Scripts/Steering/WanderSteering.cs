@@ -34,8 +34,11 @@ public class WanderSteering : SteeringBehavior
 
 	private void OnEnable()
 	{
-		// Reset wander destination to current heading when woken up, to prevent always turning around.
-		cachedDestination =  mover.Compass.up * destinationDistance;
-		UpdateDestination(0.25f);
+		if (mover != null)
+		{
+			// Reset wander destination to current heading when woken up, to prevent always turning around.
+			cachedDestination = mover.Compass.up * destinationDistance;
+			UpdateDestination(0.25f);
+		}
 	}
 }
