@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1933228257826178653}
   - component: {fileID: 1933228257826178652}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 1933228258956000754}
   - component: {fileID: 1933228258956000749}
   - component: {fileID: 1933228258956000748}
+  - component: {fileID: 750168699332736397}
   m_Layer: 0
   m_Name: ProtoCat
   m_TagString: Untagged
@@ -225,11 +226,25 @@ MonoBehaviour:
     maxSpeed: 20
     acceleration: 300
     turnSpeed: 270
-    overallDrag: 0.6
+    overallDrag: 0.95
     sideDrag: 0.9
+  maxDestinationDistance: 100
   OnMoveBegin:
     m_PersistentCalls:
       m_Calls: []
   OnMoveEnd:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &750168699332736397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933228258956000751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2005652d6e8414a23913c0df327101fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weight: 1

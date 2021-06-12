@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,6 +26,12 @@ public class SteeredMover : MonoBehaviour
 
 	private Vector3 externalForce = Vector3.zero;
 
+	List<SteeringBehavior> steeringBehaviors = new List<SteeringBehavior>();
+	List<float> modifiedWeights = new List<float>();
+	List<Vector3> cachedDestinations = new List<Vector3>();
+
+	[SerializeField] private float maxDestinationDistance = 100;
+
 	// TODO This might be expensive for many instances. Maybe just register listeners without events.
 	public UnityEvent OnMoveBegin = null;
 	public UnityEvent OnMoveEnd = null;
@@ -35,17 +42,68 @@ public class SteeredMover : MonoBehaviour
 		stats = defaultStats;
 	}
 
+	public void RegisterSteering(SteeringBehavior steering)
+	{
+		steeringBehaviors.Add(steering);
+		modifiedWeights.Add(0);
+		cachedDestinations.Add(Vector3.zero);
+	}
+
+	public void UnregisterSteering(SteeringBehavior steering)
+	{
+		steeringBehaviors.Remove(steering);
+		modifiedWeights.RemoveAt(modifiedWeights.Count -1);
+		cachedDestinations.RemoveAt(cachedDestinations.Count -1);
+	}
+
 	private void FixedUpdate()
 	{
-		var laser = Laser.Instance;
+		/*var laser = Laser.Instance;
 		var laserPos = laser.transform.position;
 		var toLaser = laserPos - transform.position;
-		bool chase = laser.Activated && toLaser.sqrMagnitude > Helper.Epsilon;
+		bool chase = laser.Activated && toLaser.sqrMagnitude > Helper.Epsilon;*/
 
-		var moveForward = ConstrainMove(toLaser);
-		bool attemptingMove = moveForward.sqrMagnitude > Helper.Epsilon;
+		// Combine steering behaviors to compute destination relative to current position.
+		Vector3 destination = Vector3.zero;
+		float weightSum = 0;
+		float maxSqrDist = maxDestinationDistance * maxDestinationDistance;
+		for (int i = steeringBehaviors.Count - 1; i >= 0; i--)
+		{
+			var steering = steeringBehaviors[i];
+			if (steering == null)
+			{
+				steeringBehaviors.RemoveAt(i);
+				modifiedWeights.RemoveAt(modifiedWeights.Count - 1);
+				cachedDestinations.RemoveAt(cachedDestinations.Count - 1);
+			}
+			else
+			{
+				Vector3 steeringRequest = steering.ComputeDestinationRelative();
+				var modifiedWeight = steering.Weight * (1 - Mathf.Min(steeringRequest.sqrMagnitude / maxSqrDist, 1));
+				weightSum += modifiedWeight;
+				modifiedWeights[i] = modifiedWeight;
+				cachedDestinations[i] = steeringRequest;
+			}
+		}
 
-		if (chase)
+		// Prevent weight from scaling force up. If all the weights are small then steering can be minimal.
+		if (weightSum < 1)
+		{
+			weightSum = 1;
+		}
+
+		for (int i = steeringBehaviors.Count - 1; i >= 0; i--)
+		{
+			var steeringRequest = cachedDestinations[i];
+			steeringRequest *= (modifiedWeights[i] / weightSum);
+			destination += steeringRequest;
+		}
+
+
+		var moveForward = ConstrainMove(destination);
+		bool attemptingForward = moveForward.sqrMagnitude > Helper.Epsilon;
+
+		if (attemptingForward)
 		{
 			if (!moving)
 			{
@@ -62,9 +120,9 @@ public class SteeredMover : MonoBehaviour
 			}
 		}
 
-		if (chase)
+		if (destination.sqrMagnitude > Helper.Epsilon)
 		{
-			var lookAt = toLaser.normalized;
+			var lookAt = destination.normalized;
 
 			// Arc Cosine is only define in [-1, 1] so prevent Dot Product from rounding error past that.
 			var cos = Mathf.Min(Vector3.Dot(transform.up, lookAt), 1);
@@ -92,7 +150,7 @@ public class SteeredMover : MonoBehaviour
 
 			transform.rotation = Quaternion.AngleAxis(angle, up);
 
-			if (attemptingMove)
+			if (attemptingForward)
 			{
 				body.AddForce(moveForward);
 			}
@@ -106,7 +164,7 @@ public class SteeredMover : MonoBehaviour
 		body.AddForce(externalForce, ForceMode.Impulse);
 
 		// If not moving forward, apply overall drag.
-		if (!attemptingMove && externalForce.sqrMagnitude < Helper.Epsilon)
+		if (!attemptingForward && externalForce.sqrMagnitude < Helper.Epsilon)
 		{
 			body.velocity *= stats.overallDrag;
 		}
@@ -115,7 +173,7 @@ public class SteeredMover : MonoBehaviour
 		var sideVelocity = body.velocity - forwardVelocity;
 
 		// If moving forward apply side-only drag to better align with direction we want to be going.
-		if (attemptingMove)
+		if (attemptingForward)
 		{
 			sideVelocity *= stats.sideDrag;
 		}
@@ -135,6 +193,10 @@ public class SteeredMover : MonoBehaviour
 		// TODO Check for flags that could prevent or force movement.
 
 		var constrainedMove = Vector3.Project(attemptedMove, transform.up);
+		if (Vector3.Dot(constrainedMove, transform.up) < 0)
+		{
+			constrainedMove = Vector3.zero;
+		}
 		return constrainedMove;
 	}
 
