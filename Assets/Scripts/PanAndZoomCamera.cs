@@ -43,6 +43,11 @@ public class PanAndZoomCamera : MonoBehaviour
 
     public void ZoomCamera(float z)
     {
+        if (!MouseOnScreen())
+        {
+            return;
+        }
+
         float newZoom = vCam.m_Lens.OrthographicSize - z * zoomSpeed * Time.deltaTime;
         vCam.m_Lens.OrthographicSize = Mathf.Clamp(newZoom, minZoom, maxZoom);
 
@@ -76,24 +81,27 @@ public class PanAndZoomCamera : MonoBehaviour
 
     public void PanCamera(float x, float y)
     {
-        bool mouseOnScreen = true;
-#if UNITY_EDITOR
-        mouseOnScreen = !(Input.mousePosition.x <= 0
-                        || Input.mousePosition.y <= 0
-                        || Input.mousePosition.x >= Handles.GetMainGameViewSize().x - 1
-                        || Input.mousePosition.y >= Handles.GetMainGameViewSize().y - 1);
-#else
-        mouseOnScreen = !(Input.mousePosition.x <= 0
-                        || Input.mousePosition.y == 0
-                        || Input.mousePosition.x >= Screen.width - 1
-                        || Input.mousePosition.y >= Screen.height - 1);
-#endif
-        if (!mouseOnScreen)
+        if (!MouseOnScreen())
         {
             return;
         }
 
         Vector3 direction = PanDirection(x, y);
         camTrans.position = Vector3.Lerp(camTrans.position, camTrans.position + direction * panSpeed, Time.deltaTime);
+    }
+
+    private bool MouseOnScreen()
+    {
+#if UNITY_EDITOR
+        return !(Input.mousePosition.x <= 0
+                 || Input.mousePosition.y <= 0
+                 || Input.mousePosition.x >= Handles.GetMainGameViewSize().x - 1
+                 || Input.mousePosition.y >= Handles.GetMainGameViewSize().y - 1);
+#else
+        return !(Input.mousePosition.x <= 0
+                 || Input.mousePosition.y == 0
+                 || Input.mousePosition.x >= Screen.width - 1
+                 || Input.mousePosition.y >= Screen.height - 1);
+#endif
     }
 }
