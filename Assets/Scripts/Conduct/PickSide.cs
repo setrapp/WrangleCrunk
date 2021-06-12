@@ -16,12 +16,13 @@ public class PickSide : MonoBehaviour
 	}
 
 	private Animator anim = null;
-	[SerializeField] private SteeredMover mover;
+	private SteeredMover mover;
 	private Facing facing = Facing.None;
 
 	private void Start()
 	{
 		anim = GetComponent<Animator>();
+		mover = GetComponentInParent<SteeredMover>();
 	}
 
 	private void Update()
