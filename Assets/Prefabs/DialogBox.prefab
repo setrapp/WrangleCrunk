@@ -61,7 +61,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2484245127834698656}
   - component: {fileID: 2484245127834698659}
-  - component: {fileID: 1407429594}
   - component: {fileID: 5072546874384063760}
   m_Layer: 0
   m_Name: DialogBox
@@ -109,18 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1407429594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2484245127834698657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce97727c3d191504b94ab79165456ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5072546874384063760
 MonoBehaviour:
   m_ObjectHideFlags: 0
