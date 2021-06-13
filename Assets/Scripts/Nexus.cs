@@ -16,7 +16,9 @@ namespace DefaultNamespace
 		public UnityEvent onFamily = null;
 
 		private bool won = false;
+		private bool gotHalfway = false;
 		public UnityEvent onWin = null;
+		public UnityEvent onHalfway = null;
 
 
 		private void Awake()
@@ -30,6 +32,12 @@ namespace DefaultNamespace
 			currentCount++;
 			countText.text = $"{currentCount} / {winCount}";
 			onFamily.Invoke();
+
+			if(currentCount >= winCount / 2 && !gotHalfway)
+            {
+				gotHalfway = true;
+				onHalfway.Invoke();
+            }
 
 			if (currentCount >= winCount && !won)
 			{
