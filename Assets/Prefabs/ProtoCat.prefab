@@ -327,7 +327,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5243603409409389566}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72450278e1b7b4f6ba6da64a76855a59, type: 3}
   m_Name: 
@@ -336,6 +336,8 @@ MonoBehaviour:
   minStrength: 1
   maxStrength: 10
   herdChance: 1
+  unherdDelay: 3
+  unherdChance: 0.5
   herdBoss: {fileID: 0}
   herdees: []
 --- !u!114 &4339972235001458612
