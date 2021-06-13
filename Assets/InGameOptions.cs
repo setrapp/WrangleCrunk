@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,27 @@ public class InGameOptions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            optionsAnimator.SetTrigger("OptionsModal");
+            Open();
         }
+    }
+
+    public void Open()
+    {
+        optionsAnimator.SetBool("OptionsModal", true);
+    }
+
+    private void LateUpdate()
+    {
+        Cursor.visible = true;
+    }
+
+    public void Quit()
+    {
+        optionsAnimator.SetTrigger("Quit");
+    }
+
+    public void ReturnToGame()
+    {
+        optionsAnimator.SetBool("OptionsModal", false);
     }
 }

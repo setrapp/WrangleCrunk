@@ -10,8 +10,13 @@ namespace DefaultNamespace
 
 		private void Start()
 		{
+			// Set mouse to center of screen
+			Cursor.lockState = CursorLockMode.Locked;
+
 #if !UNITY_EDITOR
 			Cursor.lockState = confineMouse ? CursorLockMode.Confined : CursorLockMode.None;
+#else
+			Cursor.lockState = CursorLockMode.None;
 #endif
 		}
 		void Update()
