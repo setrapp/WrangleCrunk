@@ -240,6 +240,17 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2654026951074790618, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: possibleBodies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654026951074790618, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: possibleBodies.Array.data[0].body
+      value: 
+      objectReference: {fileID: 5121673309447026750, guid: 2253e1f2802c9c846ae7494b2dfcb16f,
+        type: 3}
     - target: {fileID: 4000495152027618645, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}
       propertyPath: boredChance
