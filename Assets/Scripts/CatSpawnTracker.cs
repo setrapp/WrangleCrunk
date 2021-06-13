@@ -33,7 +33,7 @@ public class CatSpawnTracker : MonoBehaviour
             {
                 SpawnACat();
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.3f);
         }
 
         yield return null;

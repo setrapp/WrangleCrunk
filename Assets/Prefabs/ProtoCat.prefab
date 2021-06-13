@@ -93,7 +93,7 @@ MonoBehaviour:
   weight: 1
   maxChangeAngle: 180
   destinationDistance: 50
-  changeDelay: 4
+  changeDelay: 10
 --- !u!1 &968018028901322850
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +308,7 @@ MonoBehaviour:
   OnMoveEnd:
     m_PersistentCalls:
       m_Calls: []
+  idle: 0
 --- !u!114 &1083118862303915938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,13 +322,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintStats:
-    maxSpeed: 8
-    acceleration: 10
+    maxSpeed: 6
+    acceleration: 8
     turnSpeed: 360
     overallDrag: 0.98
     sideDrag: 0.95
   sprintChance: 0.4
-  walkUpdateDelay: 2
+  walkUpdateDelay: 8
   sprintUpdateDelay: 1
 --- !u!50 &1381757542
 Rigidbody2D:
@@ -949,9 +950,9 @@ MonoBehaviour:
   startChaseDistance: 20
   endChaseDistance: 40
   checkExcitedDelay: 0.5
-  checkBoredDelay: 1
-  excitedChance: 0.3
-  boredChance: 0.3
+  checkBoredDelay: 5
+  excitedChance: 0.9
+  boredChance: 0.1
 --- !u!1 &5784552726105735168
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +999,7 @@ MonoBehaviour:
   weight: 0.5
   maxChangeAngle: 90
   destinationDistance: 10
-  changeDelay: 1
+  changeDelay: 3
 --- !u!1 &6481512622972313133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1246,7 @@ PrefabInstance:
     - target: {fileID: 5835117449813669844, guid: dcbb05ac25e6c4b419c0553989df1272,
         type: 3}
       propertyPath: lineOfSight
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8877662994376271578, guid: dcbb05ac25e6c4b419c0553989df1272,
         type: 3}

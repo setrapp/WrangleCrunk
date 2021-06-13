@@ -26,19 +26,156 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: e0799e75466ed3648b902f285097c4e0, type: 3}
-    totalSpriteSurfaceArea: 0
+    - {fileID: 102900000, guid: 17567162f22a76c4bac6bc0b7e25cd47, type: 3}
+    totalSpriteSurfaceArea: 7119225
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a9da8950d4160264598b1904115131fe, type: 3}
+  - {fileID: 21300000, guid: c5c0ea2179bd3274dbe2cb181aadfaa4, type: 3}
+  - {fileID: 21300000, guid: 6df730a19e0958f44bd2e335ad7c46f2, type: 3}
+  - {fileID: 21300000, guid: 6d09cde1aec4fa243ac8940395e599ac, type: 3}
+  - {fileID: 21300000, guid: 938c4122b06950044b467a0d62ce112a, type: 3}
+  - {fileID: 21300000, guid: 5bd1a84299d6cbe4d8d98de05b2dc485, type: 3}
+  - {fileID: 21300000, guid: 3c1f1682270748647bace6772aee6ec1, type: 3}
+  - {fileID: 21300000, guid: 03a1470305ad0894c8ff32eb253535f0, type: 3}
+  - {fileID: 21300000, guid: 7b0f2843d27156641ae09c2f4310d2ad, type: 3}
+  - {fileID: 21300000, guid: 9146c3735f818694ca62a67b70b5efa4, type: 3}
+  - {fileID: 21300000, guid: cc6a53a38ddce394695cc0f6bfcdf331, type: 3}
+  - {fileID: 21300000, guid: bcf1f8e34b9094b41ae2dcb23cd284bb, type: 3}
+  - {fileID: 21300000, guid: f2e3a1140f6190d41ba18d3aa557af14, type: 3}
+  - {fileID: 21300000, guid: 8e0666444c5c9364c9eb4ff3f9f357fa, type: 3}
+  - {fileID: 21300000, guid: 7e779b64a3fd3854c90beda2b4a08d7e, type: 3}
+  - {fileID: 21300000, guid: 412af2b43f66f7948bebea47ddc3de95, type: 3}
+  - {fileID: 21300000, guid: 4b047fb48468c8f4581d055421a52418, type: 3}
+  - {fileID: 21300000, guid: cf0924f414ce1ac4698eac2bc5768f33, type: 3}
+  - {fileID: 21300000, guid: 3ba89325ddeee4e4d924508e3599b8c9, type: 3}
+  - {fileID: 21300000, guid: 07622c4545c914f45863a9e617e6beab, type: 3}
+  - {fileID: 21300000, guid: feec9055ea0ba5049a80df1d1677bc7d, type: 3}
+  - {fileID: 21300000, guid: 97bd965531853f84b8e609875a0bebe7, type: 3}
+  - {fileID: 21300000, guid: 64ebf4658acc6994dbf7991d5db367f5, type: 3}
+  - {fileID: 21300000, guid: a836c9752e0bb5346888a8dd42e8256b, type: 3}
+  - {fileID: 21300000, guid: 43bec406ce9a05b40bd6f12168ccfeae, type: 3}
+  - {fileID: 21300000, guid: 157f89468a9897848a2f53b2029f2cfe, type: 3}
+  - {fileID: 21300000, guid: 7edc7d46b5eab274689261d926e25002, type: 3}
+  - {fileID: 21300000, guid: c6a021d6b14c7b647b1d776238a909bd, type: 3}
+  - {fileID: 21300000, guid: a60effe6c803ad848aae4a0f68320f99, type: 3}
+  - {fileID: 21300000, guid: dfd9ca27f73fa3840b44abdc1b54aac5, type: 3}
+  - {fileID: 21300000, guid: ec5c54473ed02584c9dd414db82a8115, type: 3}
+  - {fileID: 21300000, guid: 4d1db1874df75014aa19ce15361f72c1, type: 3}
+  - {fileID: 21300000, guid: 1d299aa70059e454d9f8c6b3ce40dbf8, type: 3}
+  - {fileID: 21300000, guid: f2500fa71e4d11f48ab9fc6f1710cc4c, type: 3}
+  - {fileID: 21300000, guid: c678e6b750cdb2041a65dfcf95bd3189, type: 3}
+  - {fileID: 21300000, guid: 2eb607b7937b73744b4e9c0339383ebb, type: 3}
+  - {fileID: 21300000, guid: be59b5c7bae13fd4e92b3ba656d80969, type: 3}
+  - {fileID: 21300000, guid: 46d5e5c7f3e7d4f45a8e9d55b4d899e9, type: 3}
+  - {fileID: 21300000, guid: 14b67328faeb8004d8d83138b0f8d20f, type: 3}
+  - {fileID: 21300000, guid: 58c8aa38b2046924eb00982f64b5b88c, type: 3}
+  - {fileID: 21300000, guid: 400cdec8118c7874998022254f30c822, type: 3}
+  - {fileID: 21300000, guid: d8f2e9f8ac05c6847bf04975405c8f47, type: 3}
+  - {fileID: 21300000, guid: bc7c151905374f148bd598b82d027f48, type: 3}
+  - {fileID: 21300000, guid: 1e9582298b27efc458fa57dd8813b080, type: 3}
+  - {fileID: 21300000, guid: 5f5ea929787f4b84498d7ad769bbd50b, type: 3}
+  - {fileID: 21300000, guid: f1a5f9c921fee63459122923d6fe73ee, type: 3}
+  - {fileID: 21300000, guid: 628a6d1b193614242b4ad462d7c17707, type: 3}
+  - {fileID: 21300000, guid: 1c03aa7b4667a10419db71aa10519eaa, type: 3}
+  - {fileID: 21300000, guid: e26a769bb0622854ab4107f435bd45b9, type: 3}
+  - {fileID: 21300000, guid: 62a17acb418a98a47ab19dc41ef87855, type: 3}
+  - {fileID: 21300000, guid: aae81d6c04423aa439bc1ea2aa0eb3b9, type: 3}
+  - {fileID: 21300000, guid: c211048c5c939b84886c45f4b1d3824c, type: 3}
+  - {fileID: 21300000, guid: 1b87cdfcac936c74e88b6210d1869839, type: 3}
+  - {fileID: 21300000, guid: bd78801dc0efbc948b8162d5e6cfdc8b, type: 3}
+  - {fileID: 21300000, guid: 6fc50a9d08a23c74db0742433a1b5ea7, type: 3}
+  - {fileID: 21300000, guid: aa0e0bdd9356aee418295c2b65ded48e, type: 3}
+  - {fileID: 21300000, guid: 94a87afd97b9e2d4da150dfb39daf5b5, type: 3}
+  - {fileID: 21300000, guid: 645dff2eefb2c1142a773796b8122e5c, type: 3}
+  - {fileID: 21300000, guid: e0c5b18e5f897bf4aa679d5f3202fac9, type: 3}
+  - {fileID: 21300000, guid: db9b80aee7924354cbc4b9d9e246ea46, type: 3}
+  - {fileID: 21300000, guid: 93a494fef348cbe45a14ee34ecbcf592, type: 3}
+  - {fileID: 21300000, guid: 7da4514f5338b3841b5112c8ba59a665, type: 3}
+  - {fileID: 21300000, guid: f3aa235fefe7c954f95a6415044a1efa, type: 3}
+  - {fileID: 21300000, guid: 8fa33b5f54571614d9e3c3e1af435aff, type: 3}
+  - {fileID: 21300000, guid: a3fdba8f5232b8c40a9a15c5589ef400, type: 3}
+  - {fileID: 21300000, guid: 48946b9f815389d4098f624de7aa82b5, type: 3}
+  - {fileID: 21300000, guid: 00ac5c9f456809c4e8ab41e28c41256c, type: 3}
+  - {fileID: 21300000, guid: f237f7dffaeae36419fb3706f8d5e71b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - groundTile5
+  - SpottedCat_Idle_Head
+  - Catnip
+  - OrangeCat_Side_BackLeg
+  - OrangeCat_Up_Body
+  - SpottedCat_Idle_Body
+  - BasicCat_Side_FrontLeg
+  - SpottedCat_Side_Body
+  - BasicCat_Idle_Body
+  - OrangeCat_Down_Leg
+  - BasicCat_Idle_Head
+  - EnvDecor_LuckyCat_Arm_Gold
+  - KittyFountain
+  - OrangeCat_Side_Head
+  - SpottedCat_Down_Leg
+  - CowboyCat_Side_BackLeg
+  - CowboyCat_Down_Body
+  - EnvDecor_LuckyCat_Body_Gold
+  - CowboyCat_Up_Body
+  - CowboyCat_Up_Head
+  - batteryBar
+  - Cattree
+  - BasicCat_Up_Head
+  - BasicCat_Side_BackLeg
+  - OrangeCat_Idle_Tail
+  - CowboyCat_Idle_Tail
+  - Cattail
+  - groundTile1b
+  - SpottedCat_Side_Tail
+  - EnvDecor_LuckyCat_Body
+  - SpottedCat_Idle_Tail
+  - SpottedCat_Side_FrontLeg
+  - EnvDecor_YarnBall
+  - SpottedCat_Side_Head
+  - SpottedCat_Up_Body
+  - groundTile4_Tall
+  - OrangeCat_Side_Tail
+  - BasicCat_Down_Leg
+  - SpottedCat_Up_Head
+  - OrangeCat_Idle_Head
+  - waterTile1
+  - EnvDecor_LuckyCat_Arm
+  - groundTile1
+  - groundTile2_Tall
+  - groundTile3_Tall
+  - CowboyCat_Side_Head
+  - CowboyCat_Idle_Body
+  - BasicCat_Up_Body
+  - SpottedCat_Down_Body
+  - BasicCat_Idle_Tail
+  - CowboyCat_Side_Body
+  - groundTile2
+  - BasicCat_Side_Head
+  - BasicCat_Down_Body
+  - OrangeCat_Idle_Body
+  - groundTile3
+  - CowboyCat_Side_FrontLeg
+  - OrangeCat_Up_Head
+  - OrangeCat_Side_FrontLeg
+  - OrangeCat_Down_Body
+  - OrangeCat_Side_Body
+  - CowboyCat_Side_Tail
+  - SpottedCat_Side_BackLeg
+  - CowboyCat_Down_Leg
+  - Catnip2
+  - BasicCat_Side_Tail
+  - CowboyCat_Idle_Head
+  - BasicCat_Side_Body
   m_RenderDataMap: {}
-  m_Tag: New Sprite Atlas
+  m_Tag: EnvironmentSprites
   m_IsVariant: 0
