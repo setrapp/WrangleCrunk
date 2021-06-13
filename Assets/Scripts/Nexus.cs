@@ -10,21 +10,20 @@ namespace DefaultNamespace
 
 		[SerializeField] int winCount = 10;
 		private int currentCount = 0;
-		[SerializeField] private TextMeshProUGUI currentCountText;
-		[SerializeField] private TextMeshProUGUI winCountText;
+		[SerializeField] private TextMeshProUGUI countText;
 
 
 		private void Awake()
 		{
 			Instance = this;
-			winCountText.text = $"{winCount}";
-			currentCountText.text = "0";
+			countText.text = $"{0 / winCount}";
 		}
 
 		public void AddToTheFamily()
 		{
 			currentCount++;
-			currentCountText.text = $"{winCount}";
+			countText.text = $"{currentCount / winCount}";
+
 		}
 	}
 }
