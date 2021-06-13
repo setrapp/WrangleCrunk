@@ -6,14 +6,9 @@ public class GamePauser : MonoBehaviour
 {
 
     private CatSpawnTracker cst;
-    public bool pauseOnStart = true;
     private void Start()
     {
         cst = FindObjectOfType<CatSpawnTracker>();
-        if (pauseOnStart)
-        {
-            Pause();
-        }
     }
 
     public void Pause()
