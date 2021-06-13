@@ -20,11 +20,12 @@ namespace DefaultNamespace
 		public UnityEvent onWin = null;
 		public UnityEvent onHalfway = null;
 
-
+		private AudioSource audio;
 		private void Awake()
 		{
 			Instance = this;
 			countText.text = $"0 / {winCount}";
+			audio = this.GetComponent<AudioSource>();
 		}
 
 		public void AddToTheFamily()
@@ -32,6 +33,7 @@ namespace DefaultNamespace
 			currentCount++;
 			countText.text = $"{currentCount} / {winCount}";
 			onFamily.Invoke();
+			audio.Play();
 
 			if(currentCount >= (winCount / 2) && !gotHalfway)
             {
