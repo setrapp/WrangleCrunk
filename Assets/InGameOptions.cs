@@ -12,8 +12,13 @@ public class InGameOptions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            optionsAnimator.SetTrigger("OptionsModal");
+            Open();
         }
+    }
+
+    public void Open()
+    {
+        optionsAnimator.SetBool("OptionsModal", true);
     }
 
     private void LateUpdate()
