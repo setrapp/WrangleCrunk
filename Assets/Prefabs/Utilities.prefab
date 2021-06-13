@@ -45,7 +45,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -170,9 +170,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 481551fde8331cb4c8ab71060d66fd30, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -353,6 +353,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2158315497292662099, guid: 916f4485ada6d1a448a140d76d55ba2d,
+        type: 3}
+      propertyPath: pausedMusic
+      value: 
+      objectReference: {fileID: 8806778702771897391}
+    - target: {fileID: 2158315497292662099, guid: 916f4485ada6d1a448a140d76d55ba2d,
+        type: 3}
+      propertyPath: unpausedMusic
+      value: 
+      objectReference: {fileID: 3794866938702843552}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 916f4485ada6d1a448a140d76d55ba2d, type: 3}
 --- !u!4 &1437009235861167465 stripped
