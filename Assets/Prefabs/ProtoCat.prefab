@@ -842,9 +842,9 @@ MonoBehaviour:
   startChaseDistance: 20
   endChaseDistance: 40
   checkExcitedDelay: 0.5
-  checkBoredDelay: 5
-  excitedChance: 0.6
-  boredChance: 0.1
+  checkBoredDelay: 3
+  excitedChance: 0.3
+  boredChance: 0.3
 --- !u!1 &6481512622972313133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,8 +1003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d3443893bcd484e8d6d0e2e0eb0d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 2
+  weight: 1
   culler: {fileID: 2431475396936198720}
+  minDistance: 10
 --- !u!1001 &8161883282383330708
 PrefabInstance:
   m_ObjectHideFlags: 0
