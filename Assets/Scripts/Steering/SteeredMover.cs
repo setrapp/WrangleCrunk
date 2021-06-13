@@ -38,6 +38,8 @@ public class SteeredMover : MonoBehaviour
 	[NonSerialized] public Vector3 moveDirection = Vector3.up;
 
 
+	public bool paused = false;
+
 	// TODO This might be expensive for many instances. Maybe just register listeners without events.
 	public UnityEvent OnMoveBegin = null;
 	public UnityEvent OnMoveEnd = null;
@@ -247,6 +249,20 @@ public class SteeredMover : MonoBehaviour
 	{
 		stats = defaultStats;
 	}
+
+	public void Pause()
+    {
+		MoveStats s = new MoveStats();
+		s.maxSpeed = 0f;
+		s.acceleration = 0f;		
+		SetStats(s);
+    }
+
+	public void UnPause()
+    {
+		MoveStats s = new MoveStats();
+		SetStats(s);
+    }
 }
 
 [System.Serializable]
