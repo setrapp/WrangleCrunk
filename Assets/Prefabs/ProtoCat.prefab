@@ -90,10 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886ffca58126441bbb7c1a617cd5ce16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0.5
+  weight: 1
   maxChangeAngle: 180
   destinationDistance: 50
-  changeDelay: 10
+  changeDelay: 3
 --- !u!1 &968018028901322850
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +843,7 @@ MonoBehaviour:
   endChaseDistance: 40
   checkExcitedDelay: 0.5
   checkBoredDelay: 5
-  excitedChance: 0.9
+  excitedChance: 0.6
   boredChance: 0.1
 --- !u!1 &6481512622972313133
 GameObject:
