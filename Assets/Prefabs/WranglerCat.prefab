@@ -150,10 +150,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1083118862303915938, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: sprintStats.maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083118862303915938, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: sprintStats.acceleration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1560761347446880756, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933228258956000748, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: defaultStats.maxSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1933228258956000751, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}

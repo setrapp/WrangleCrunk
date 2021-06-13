@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 20479d6b190847c4ab28e897bc509a83, type: 3}
+    totalSpriteSurfaceArea: 728089
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: cc69efc094b7a26409c11eb6511cb63f, type: 3}
+  - {fileID: 21300000, guid: 8a960c8155a359b43b200ebaf79295db, type: 3}
+  - {fileID: 21300000, guid: 86ee8b916f245ca468f5303f2e3e5d13, type: 3}
+  - {fileID: 21300000, guid: d59500626cc700540b2ab994e279713e, type: 3}
+  - {fileID: 21300000, guid: 54ddf70532cd5ed4ea2b98543b9f6191, type: 3}
+  - {fileID: 21300000, guid: 4c39f635471b0294a80576bacb10a660, type: 3}
+  - {fileID: 21300000, guid: 261aabf5d05eee64db2ae3da73182d35, type: 3}
+  - {fileID: 21300000, guid: c9396a18c9b833d459061388c467b242, type: 3}
+  - {fileID: 21300000, guid: 05fe061951f425043a1fd9067854ac1e, type: 3}
+  - {fileID: 21300000, guid: 454751dca5e23e4458ba162a68053bf0, type: 3}
+  - {fileID: 21300000, guid: 72c0defc2b7c1e747930918f3ad0f6db, type: 3}
+  - {fileID: 21300000, guid: b0adaa4fe5e07f64f8bef5e87351895e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - UI_DefaultFrame
+  - UI_ContinueButton
+  - pattern_Dots_1
+  - meter_Overlay
+  - logo_Wranglecrunk_cat
+  - meter_Base
+  - meter_Fill
+  - pattern_Dots_2
+  - UI_PortraitFrame
+  - logo_Wranglecrunk
+  - UI_Options
+  - logo_Options
+  m_RenderDataMap: {}
+  m_Tag: UIAtlas
+  m_IsVariant: 0
