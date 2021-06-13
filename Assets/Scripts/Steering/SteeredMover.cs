@@ -84,10 +84,10 @@ public class SteeredMover : MonoBehaviour
 			else
 			{
 				Vector3 steeringRequest = steering.ComputeDestinationRelative();
-				var modifiedWeight = steering.Weight * (1 - Mathf.Min(steeringRequest.sqrMagnitude / maxSqrDist, 1));
+				var modifiedWeight = steering.Weight;// * (1 - Mathf.Min(steeringRequest.sqrMagnitude / maxSqrDist, 1));
 				weightSum += modifiedWeight;
 				modifiedWeights[i] = modifiedWeight;
-				cachedDestinations[i] = steeringRequest;
+				cachedDestinations[i] = steeringRequest.normalized;
 			}
 		}
 
@@ -157,7 +157,7 @@ public class SteeredMover : MonoBehaviour
 
 		if (attemptingForward)
 		{
-			body.AddForce(moveForward);
+			body.AddForce(moveForward * stats.acceleration);
 			moveDirection = moveForward;
 		}
 

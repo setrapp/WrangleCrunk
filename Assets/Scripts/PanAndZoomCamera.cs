@@ -21,6 +21,8 @@ public class PanAndZoomCamera : MonoBehaviour
         vCam = this.GetComponent<CinemachineVirtualCamera>();
         input = this.GetComponent<CinemachineInputProvider>();
         camTrans = vCam.gameObject.transform;
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()

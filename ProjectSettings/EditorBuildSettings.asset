@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ClaySceneWithFowAndMinimap.unity
-    guid: 6ef394ea6e41075498dcdab31a13776e
+    path: Assets/Scenes/SamScene.unity
+    guid: 828264cb159bb453ead6803909a26bc0
   m_configObjects: {}
