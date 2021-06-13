@@ -24,6 +24,8 @@ public class Laser : MonoBehaviour
 	private BatteryLifeGradient batteryLifeGradient;
 	private float lastTimeDischarged = 0f;
 
+	public BatteryAudio batteryAudio;
+
 
 	private void Start()
 	{
@@ -31,6 +33,7 @@ public class Laser : MonoBehaviour
 		charge = maxCharge;
 		batteryLifeGradient = FindObjectOfType<BatteryLifeGradient>();
 		lastTimeDischarged = Time.time;
+
 	}
 
 	private void Update()
@@ -63,10 +66,20 @@ public class Laser : MonoBehaviour
 
 	private void setCharge(float val)
 	{
+		if(charge <= 0f)
+        {
+			batteryAudio.PlayBatteryChargeSound();
+        }
+
 		charge = val;
 		if (batteryLifeGradient != null)
 		{
 			batteryLifeGradient.SetFill(val / maxCharge);
 		}
+
+		if(charge <= 0f)
+        {
+			batteryAudio.PlayBatteryDeadSound();
+        }
 	}
 }
