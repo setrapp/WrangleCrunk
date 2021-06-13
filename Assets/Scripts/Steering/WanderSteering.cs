@@ -25,6 +25,12 @@ public class WanderSteering : SteeringBehavior
 
 	private void UpdateDestination(float angleFactor = 1)
 	{
+		if (mover == null)
+		{
+			cachedDestination = Vector3.zero;
+			return;
+		}
+
 		var changeAngle = Random.Range(-maxChangeAngle * angleFactor, maxChangeAngle * angleFactor);
 		cachedDestination = Quaternion.Euler(0, 0, changeAngle) * mover.Compass.up;
 		cachedDestination *= destinationDistance;
