@@ -11,6 +11,10 @@ public class HerdSteering : SteeringBehavior
 	public float HerdStrength { get; private set; }
 	[SerializeField] private float herdChance = 1;
 
+	[SerializeField] private float unherdDelay = 3;
+	[SerializeField] private float unherdChance = 0.5f;
+	private float untilUnherd = 0;
+
 
 	public HerdSteering herdBoss = null;
 	public HerdSteering HerdBoss
@@ -35,6 +39,7 @@ public class HerdSteering : SteeringBehavior
 
 	protected override Vector3 computeDestinationRelative()
 	{
+
 		// TODO actually make herding.
 		if (HerdBoss == this)
 		{
@@ -42,6 +47,18 @@ public class HerdSteering : SteeringBehavior
 		}
 		else
 		{
+			untilUnherd -= Time.deltaTime;
+
+			if (untilUnherd <= 0)
+			{
+				if (Random.Range(0f, 1f) < unherdChance)
+				{
+					// Break away from the herd and be your own cat.
+					herdBoss = this;
+				}
+				untilUnherd = unherdDelay;
+			}
+
 			return HerdBoss.transform.position - transform.position;
 		}
 	}
@@ -83,5 +100,6 @@ public class HerdSteering : SteeringBehavior
 	public void JoinHerd(HerdSteering herdBoss)
 	{
 		this.herdBoss = herdBoss;
+		untilUnherd = unherdDelay;
 	}
 }
