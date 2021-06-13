@@ -14,11 +14,13 @@ public class CatSpawnTracker : MonoBehaviour
 
     public bool paused = false;
 
+    public float spawnRate = 1f;
+
     private void Start()
     {
         spawners = new List<CatSpawner>(FindObjectsOfType<CatSpawner>());
         StartCoroutine(HandleCatSpawning());
-    }   
+    }
 
     public void DecrementCurrentCats()
     {
@@ -33,7 +35,7 @@ public class CatSpawnTracker : MonoBehaviour
             {
                 SpawnACat();
             }
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(spawnRate);
         }
 
         yield return null;
@@ -41,8 +43,29 @@ public class CatSpawnTracker : MonoBehaviour
 
     private void SpawnACat()
     {
-        currentCatNumber += 1;
-        CatSpawner spawner = spawners[Random.Range(0, spawners.Count - 1)];
-        spawner.SpawnCat();
+        var sumChance = 0f;
+        for (int i = 0; i < spawners.Count; i++)
+        {
+            var spawn = spawners[i];
+            if (spawn.CanSpawn)
+            {
+                sumChance += spawn.Priority;
+            }
+        }
+
+        var pick = Random.Range(0, sumChance);
+        var sumPick = 0f;
+        for (int i = 0; i < spawners.Count; i++)
+        {
+            var spawn = spawners[i];
+            if (spawn.CanSpawn && sumPick >= pick)
+            {
+                spawn.SpawnCat();
+                currentCatNumber += 1;
+                break;
+            }
+
+            sumPick += spawn.Priority;
+        }
     }
 }

@@ -6,6 +6,7 @@ public class DismissDialog : MonoBehaviour
 {
 
     private Animator animator;
+    public bool quitOnDismiss = false;
 
     void Start()
     {
@@ -25,7 +26,13 @@ public class DismissDialog : MonoBehaviour
 
     public void Dismiss()
     {
-        Debug.Log("Dismissing Dialog");
-        animator.SetBool("DialogOpen", false);  
+        if (quitOnDismiss)
+        {
+            animator.SetTrigger("Quit");
+        }
+        else
+        {
+            animator.SetBool("DialogOpen", false);
+        }
     }
 }
