@@ -5155,7 +5155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dot: {fileID: 1395970054569448583}
-  maxCharge: 300
+  maxCharge: 500
   chargeRate: 100
   dischargeRate: 10
   chargeDelay: 2.5
