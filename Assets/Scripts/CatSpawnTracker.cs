@@ -18,7 +18,7 @@ public class CatSpawnTracker : MonoBehaviour
     {
         spawners = new List<CatSpawner>(FindObjectsOfType<CatSpawner>());
         StartCoroutine(HandleCatSpawning());
-    }   
+    }
 
     public void DecrementCurrentCats()
     {
@@ -33,7 +33,7 @@ public class CatSpawnTracker : MonoBehaviour
             {
                 SpawnACat();
             }
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return null;
