@@ -16,15 +16,15 @@ public class CatAudio : MonoBehaviour
 
     public void PlayExcitedClip()
     {
-        Debug.Log("Playing excited clip");
-        AudioClip clip = excitedClips[Random.Range(0, excitedClips.Length - 1)];
+        int index = Random.Range(0, excitedClips.Length);
+        AudioClip clip = excitedClips[index];
         audio.PlayOneShot(clip);
     }
 
     public void PlayDisgruntledClip()
     {
-        Debug.Log("Playing disgruntled clip");
-        AudioClip clip = disgruntledClips[Random.Range(0, excitedClips.Length - 1)];
+        int index = Random.Range(0, excitedClips.Length);
+        AudioClip clip = disgruntledClips[index];
         audio.PlayOneShot(clip);
     }
 }
