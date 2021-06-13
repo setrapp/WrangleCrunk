@@ -95,19 +95,11 @@ public class PanAndZoomCamera : MonoBehaviour
     private bool MouseOnScreen()
     {
 #if UNITY_EDITOR
-#if UNITY_EDITOR_OSX
-        return !(Input.mousePosition.x <= 0
-                 || Input.mousePosition.y <= 0
-                 || Input.mousePosition.x >= Handles.GetMainGameViewSize().x - 1
-                 || Input.mousePosition.y >= Handles.GetMainGameViewSize().y - 1);
-#else
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            return false;
+        }
+#endif
         return true;
-#endif
-#else
-        /*return !(Input.mousePosition.x <= 0
-                 || Input.mousePosition.y == 0
-                 || Input.mousePosition.x >= Screen.width - 1
-                 || Input.mousePosition.y >= Screen.height - 1);*/
-#endif
     }
 }
