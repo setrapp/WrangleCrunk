@@ -18,11 +18,17 @@ public class FogOfWarCulling : MonoBehaviour
         if(obj != null)
         {
             playerTransform = obj.transform;
+        } else
+        {
+            Debug.LogWarning("Fog Of War Culling couldn't find player");
         }
 
         if(withinLineOfSight())
         {
             reveal();
+        } else
+        {
+            cull();
         }
     }
 
