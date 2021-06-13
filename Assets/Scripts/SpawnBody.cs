@@ -23,6 +23,11 @@ namespace DefaultNamespace
 					break;
 				}
 			}
+
+			if (sum < 1)
+			{
+				Debug.LogError("Spawn Chance is less than 1, this means something might not render");
+			}
 		}
 	}
 

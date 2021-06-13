@@ -251,6 +251,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5121673309447026750, guid: 2253e1f2802c9c846ae7494b2dfcb16f,
         type: 3}
+    - target: {fileID: 2654026951074790618, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: possibleBodies.Array.data[0].spawnChance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000495152027618645, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}
       propertyPath: boredChance
@@ -289,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 7213983418535624795, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7799953222484015404, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}
@@ -299,7 +304,7 @@ PrefabInstance:
     - target: {fileID: 9209747845702591786, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2551425320969912310, guid: 32ea58a5ad2a746a593542db296a61ac, type: 3}
