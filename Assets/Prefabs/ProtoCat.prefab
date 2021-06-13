@@ -662,13 +662,13 @@ MonoBehaviour:
   possibleBodies:
   - name: White
     body: {fileID: 5839901187104310073, guid: 693c16b1dc490a745981c8a24b971c57, type: 3}
-    spawnChance: 0.7
+    spawnChance: 0.2
   - name: Orange
     body: {fileID: 6454086817663762576, guid: 13d01fec2dc45d14c85eea7821523ac8, type: 3}
-    spawnChance: 0.25
+    spawnChance: 0.4
   - name: Spotted
     body: {fileID: 2661461527603238469, guid: 127de15edb0863e4890399e63fd25708, type: 3}
-    spawnChance: 0.05
+    spawnChance: 0.4
 --- !u!1 &5673340910746627212
 GameObject:
   m_ObjectHideFlags: 0
