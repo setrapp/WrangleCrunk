@@ -240,6 +240,26 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4000495152027618645, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: boredChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000495152027618645, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: excitedChance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000495152027618645, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: checkBoredDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000495152027618645, guid: 32ea58a5ad2a746a593542db296a61ac,
+        type: 3}
+      propertyPath: checkExcitedDelay
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6373428420115889234, guid: 32ea58a5ad2a746a593542db296a61ac,
         type: 3}
       propertyPath: m_RootOrder

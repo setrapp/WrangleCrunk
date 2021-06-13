@@ -22,7 +22,7 @@ public class SteeredMover : MonoBehaviour
 	private Vector3 sideAxis => Vector3.Cross(forwardAxis, up);
 
 	[SerializeField] private MoveStats defaultStats;
-	[SerializeField] private MoveStats stats;
+	private MoveStats stats;
 	private bool moving;
 
 	private Vector3 externalForce = Vector3.zero;
