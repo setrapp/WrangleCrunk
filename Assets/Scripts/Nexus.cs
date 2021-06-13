@@ -33,7 +33,7 @@ namespace DefaultNamespace
 			countText.text = $"{currentCount} / {winCount}";
 			onFamily.Invoke();
 
-			if(currentCount >= winCount / 2 && !gotHalfway)
+			if(currentCount >= (winCount / 2) && !gotHalfway)
             {
 				gotHalfway = true;
 				onHalfway.Invoke();
