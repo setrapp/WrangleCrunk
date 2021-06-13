@@ -15,6 +15,8 @@ public class HerdSteering : SteeringBehavior
 	[SerializeField] private float unherdChance = 0.5f;
 	private float untilUnherd = 0;
 
+	[SerializeField] private float followDistance = 3;
+
 
 	public HerdSteering herdBoss = null;
 	public HerdSteering HerdBoss

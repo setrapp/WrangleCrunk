@@ -62,4 +62,10 @@ public class FogOfWarCulling : MonoBehaviour
         minimapSprite.enabled = true;
         spriteRevealed = true;
     }
+
+    public void RevealForever()
+    {
+        reveal();
+        enabled = false;
+    }
 }
