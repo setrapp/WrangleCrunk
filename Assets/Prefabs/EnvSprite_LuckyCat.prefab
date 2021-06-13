@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5272347672851533988}
   - component: {fileID: 3248374283820836048}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2113584951618306554}
   - component: {fileID: 4269390488770046598}
   - component: {fileID: 4057016429557543376}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5017,7 +5017,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4434505618666578564}
   - component: {fileID: 7623838662414802573}
-  m_Layer: 0
+  - component: {fileID: 3858589542796325619}
+  m_Layer: 14
   m_Name: EnvSprite_LuckyCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5060,6 +5061,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &3858589542796325619
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717284775749110058}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5
 --- !u!1 &3044133848924210845
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,7 +5086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7496553529671822412}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ParticleRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5104,7 +5121,7 @@ GameObject:
   - component: {fileID: 6076184718796765348}
   - component: {fileID: 1439923100204148581}
   - component: {fileID: 8688417104339910268}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Orbs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10002,7 +10019,7 @@ GameObject:
   - component: {fileID: 7894879628044451762}
   - component: {fileID: 2656296688232018350}
   - component: {fileID: 4942834918007811621}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: DefaultParticles;PFuckyouClay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14899,7 +14916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8537013408337265352}
   - component: {fileID: 4280512411179592677}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Golden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14945,7 +14962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408992456189745321}
   - component: {fileID: 5472633243737831953}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15032,7 +15049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3699557758736343399}
   - component: {fileID: 2247560616383611263}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15118,7 +15135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1369051232023009267}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15151,7 +15168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3896865862178279076}
   - component: {fileID: 876131093273374014}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

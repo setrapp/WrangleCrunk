@@ -321,8 +321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintStats:
-    maxSpeed: 15
-    acceleration: 20
+    maxSpeed: 8
+    acceleration: 10
     turnSpeed: 360
     overallDrag: 0.98
     sideDrag: 0.95
@@ -382,6 +382,7 @@ Transform:
   - {fileID: 2207744582431717052}
   - {fileID: 4950110024897752771}
   - {fileID: 2562042461496145}
+  - {fileID: 3552153422437366526}
   m_Father: {fileID: 1933228258956000753}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1010,6 +1011,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3098315481381072771}
   - component: {fileID: 1624094481039919410}
+  - component: {fileID: 7723315125765495903}
+  - component: {fileID: 7592411784548175544}
   m_Layer: 12
   m_Name: Compass
   m_TagString: Untagged
@@ -1047,6 +1050,128 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &7723315125765495903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481512622972313133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d675d1dd76471455993d3bedadff7892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnJoin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6144166874439240137}
+        m_TargetAssemblyTypeName: OasisSteering, Assembly-CSharp
+        m_MethodName: SetTarget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7592411784548175544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481512622972313133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0dc4588d0f564bed80d78bce06c7c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTurnNeeded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7811855809344152096}
+        m_TargetAssemblyTypeName: WanderSteering, Assembly-CSharp
+        m_MethodName: FlipDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4639473745452366854}
+        m_TargetAssemblyTypeName: WanderSteering, Assembly-CSharp
+        m_MethodName: FlipDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6765009501392914293}
+        m_TargetAssemblyTypeName: WanderSteering, Assembly-CSharp
+        m_MethodName: FlipDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &7799953222484015404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3552153422437366526}
+  - component: {fileID: 6144166874439240137}
+  m_Layer: 0
+  m_Name: Oasis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3552153422437366526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799953222484015404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1510690570104056738}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6144166874439240137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799953222484015404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d3443893bcd484e8d6d0e2e0eb0d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 2
 --- !u!1001 &8161883282383330708
 PrefabInstance:
   m_ObjectHideFlags: 0
