@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1510690570104056738}
   m_Layer: 0
-  m_Name: Streering
+  m_Name: Steering
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -722,6 +722,7 @@ MonoBehaviour:
   herdChance: 1
   unherdDelay: 3
   unherdChance: 0.5
+  followDistance: 3
   herdBoss: {fileID: 0}
   herdees: []
 --- !u!114 &4339972235001458612
@@ -1066,8 +1067,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6144166874439240137}
         m_TargetAssemblyTypeName: OasisSteering, Assembly-CSharp
-        m_MethodName: SetTarget
-        m_Mode: 0
+        m_MethodName: SeekHome
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1171,6 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 2
+  culler: {fileID: 2431475396936198720}
 --- !u!1001 &8161883282383330708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1261,3 +1263,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8161883282383330708}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2431475396936198720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5835117449813669844, guid: dcbb05ac25e6c4b419c0553989df1272,
+    type: 3}
+  m_PrefabInstance: {fileID: 8161883282383330708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15bda0b615766d4fbe0ec5099432826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,25 +1,34 @@
 
 
+using DefaultNamespace;
 using UnityEngine;
 
 public class OasisSteering : SteeringBehavior
 {
-	private Transform target;
+	private bool seekHome = false;
+	[SerializeField] private FogOfWarCulling culler = null;
 
 	protected override (Vector3 destination, float weight) computeDestinationRelative()
 	{
-		if (target == null)
+		if (!seekHome)
 		{
 			return (Vector3.zero, 0);
 		}
 
-		var toTarget = target.position - transform.position;
+		var toTarget = Nexus.Instance.transform.position - transform.position;
 		toTarget.z = 0;
 		return (toTarget, weight);
 	}
 
-	public void SetTarget(Transform target)
+	public void SeekHome()
 	{
-		this.target = target;
+		seekHome = true;
+		FindObjectOfType<CatSpawnTracker>().DecrementCurrentCats();
+		if (culler != null)
+		{
+			culler.RevealForever();
+		}
+
+		Nexus.Instance.AddToTheFamily();
 	}
 }
