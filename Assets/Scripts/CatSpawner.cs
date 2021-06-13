@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class CatSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject cat;
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnCat()
     {
-        
+        Instantiate(cat, this.transform.position, Quaternion.identity);
     }
 }
