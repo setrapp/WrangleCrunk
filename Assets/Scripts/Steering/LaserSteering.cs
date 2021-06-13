@@ -104,32 +104,28 @@ public class LaserSteering : SteeringBehavior
 		{
 			if (chasing)
 			{
-				if (returnWait == null)
+				/*if (returnWait == null)
 				{
 					returnWait = StartCoroutine(waitForReturn());
-				}
+				}*/
 
-				if (untilBoredCheck <= 0)
-				{
-					shouldChase = Random.Range(0f, 1f) > boredChance;
-					untilBoredCheck = checkBoredDelay;
-				}
+				shouldChase = false;//Random.Range(0f, 1f) > boredChance;
+				untilBoredCheck = checkBoredDelay;
 			}
 		}
 
 		return shouldChase;
 	}
 
-	IEnumerator waitForReturn()
+	/*IEnumerator waitForReturn()
 	{
 		lastKnownDot = Laser.Instance.transform.position;
-		/*yield return new WaitForSeconds(checkBoredDelay);
+		yield return new WaitForSeconds(checkBoredDelay);
 		if (!LaserActiveNearby())
 		{
 			chasing = false;
 			untilExciteCheck = checkExcitedDelay;
-		}*/
-		chasing = false;
+		}
 		yield break;
-	}
+	}*/
 }

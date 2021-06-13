@@ -24,7 +24,7 @@ namespace DefaultNamespace
 				}
 			}
 
-			if (sum < 1)
+			if (sum < 1 && body == null)
 			{
 				Debug.LogError("Spawn Chance is less than 1, this means something might not render");
 			}

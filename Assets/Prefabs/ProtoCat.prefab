@@ -610,15 +610,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excitedClips:
-  - {fileID: 8300000, guid: c971d62d94a46e64fbf7d2df3ed2237d, type: 3}
-  - {fileID: 8300000, guid: 36a575dcdff9aa2499a32791b8224ae0, type: 3}
-  - {fileID: 8300000, guid: 10f4039254883c74a8abeb87a0b4ca5b, type: 3}
-  - {fileID: 8300000, guid: 9752a90d308880c42b86be45ef4b147d, type: 3}
+  - {fileID: 8300000, guid: 7b019c2f29b8cd14aa338738e2f6365d, type: 3}
+  - {fileID: 8300000, guid: e57e3110fe4185b4e96073be9802dfb6, type: 3}
+  - {fileID: 8300000, guid: 5276ce7f941e9b3499ca5485aa58c516, type: 3}
   disgruntledClips:
-  - {fileID: 8300000, guid: 898a72a466522a447be5fe809b33cb60, type: 3}
-  - {fileID: 8300000, guid: e906588cc3636c342adcac6284d80063, type: 3}
-  - {fileID: 8300000, guid: 1c6d5a29138ddf2438074aaf03097f6d, type: 3}
-  - {fileID: 8300000, guid: a3fc0f5c24630d1408b0fbef4fb93067, type: 3}
+  - {fileID: 8300000, guid: adf918a0d7ecfc14399cadc2efa76736, type: 3}
+  - {fileID: 8300000, guid: f9bb7d00e458fb44c949bf5e190e110f, type: 3}
+  - {fileID: 8300000, guid: 11b1e7798d780a2468dfdd316d70b21f, type: 3}
 --- !u!1 &4724006779333915903
 GameObject:
   m_ObjectHideFlags: 0
