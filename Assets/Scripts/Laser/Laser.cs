@@ -53,9 +53,9 @@ public class Laser : MonoBehaviour
 				activated = false;
 				OnDeactivate.Invoke();
 			}
-			
+
 			if(Time.time - lastTimeDischarged > chargeDelay)
-            {
+			{
 				setCharge(Mathf.Min(charge + (chargeRate * Time.deltaTime), maxCharge));
 			}
 		}
@@ -64,9 +64,9 @@ public class Laser : MonoBehaviour
 	private void setCharge(float val)
 	{
 		charge = val;
-		if(batteryLifeGradient != null)
-        {
+		if (batteryLifeGradient != null)
+		{
 			batteryLifeGradient.SetFill(val / maxCharge);
-        }
+		}
 	}
 }

@@ -149,12 +149,6 @@ MonoBehaviour:
     turnSpeed: 270
     overallDrag: 0.95
     sideDrag: 0.9
-  stats:
-    maxSpeed: 10
-    acceleration: 100
-    turnSpeed: 180
-    overallDrag: 0.6
-    sideDrag: 0.6
   maxDestinationDistance: 100
   Compass: {fileID: 3098315481381072771}
   OnMoveBegin:
@@ -519,6 +513,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  startChaseDistance: 20
+  endChaseDistance: 40
+  checkExcitedDelay: 0.5
+  checkBoredDelay: 1
+  excitedChance: 0.3
+  boredChance: 0.3
 --- !u!1 &5784552726105735168
 GameObject:
   m_ObjectHideFlags: 0
