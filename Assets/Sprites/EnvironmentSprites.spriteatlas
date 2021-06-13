@@ -33,7 +33,7 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: e0799e75466ed3648b902f285097c4e0, type: 3}
     - {fileID: 102900000, guid: 17567162f22a76c4bac6bc0b7e25cd47, type: 3}
-    totalSpriteSurfaceArea: 7119225
+    totalSpriteSurfaceArea: 7381369
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -79,6 +79,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 46d5e5c7f3e7d4f45a8e9d55b4d899e9, type: 3}
   - {fileID: 21300000, guid: 14b67328faeb8004d8d83138b0f8d20f, type: 3}
   - {fileID: 21300000, guid: 58c8aa38b2046924eb00982f64b5b88c, type: 3}
+  - {fileID: 21300000, guid: 41d39d58c331cd84e8aca28c5da5755f, type: 3}
   - {fileID: 21300000, guid: 400cdec8118c7874998022254f30c822, type: 3}
   - {fileID: 21300000, guid: d8f2e9f8ac05c6847bf04975405c8f47, type: 3}
   - {fileID: 21300000, guid: bc7c151905374f148bd598b82d027f48, type: 3}
@@ -148,6 +149,7 @@ SpriteAtlas:
   - BasicCat_Down_Leg
   - SpottedCat_Up_Head
   - OrangeCat_Idle_Head
+  - SpinningCurleyCircle
   - waterTile1
   - EnvDecor_LuckyCat_Arm
   - groundTile1
