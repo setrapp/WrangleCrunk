@@ -33,7 +33,12 @@ public class LaserSteering : SteeringBehavior
 
 		if (ChasingLaser(laser))
 		{
-			var laserPos = laser.transform.position;
+			var laserPos = lastKnownDot;
+			if (laser.Activated)
+			{
+				laserPos = laser.transform.position;
+			}
+
 			destination = laserPos - transform.position;
 
 			if (!chasing)
@@ -115,6 +120,7 @@ public class LaserSteering : SteeringBehavior
 
 	IEnumerator waitForReturn()
 	{
+		lastKnownDot = Laser.Instance.transform.position;
 		yield return new WaitForSeconds(checkBoredDelay);
 		if (!LaserActiveNearby())
 		{

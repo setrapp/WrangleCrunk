@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LandingScreen.unity
     guid: 9e04d9fb98956a7438c07934cb79a9be
   - enabled: 1
-    path: Assets/Scenes/ClaySceneWithFowAndMinimap.unity
+    path: Assets/Scenes/WrangleCrunk.unity
     guid: 6ef394ea6e41075498dcdab31a13776e
   m_configObjects: {}

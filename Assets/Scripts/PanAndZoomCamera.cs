@@ -22,7 +22,7 @@ public class PanAndZoomCamera : MonoBehaviour
         input = this.GetComponent<CinemachineInputProvider>();
         camTrans = vCam.gameObject.transform;
 
-        Cursor.lockState = CursorLockMode.Confined;
+
     }
 
     void Update()
@@ -94,12 +94,15 @@ public class PanAndZoomCamera : MonoBehaviour
 
     private bool MouseOnScreen()
     {
-        return true;
 #if UNITY_EDITOR
+#if UNITY_EDITOR_OSX
         return !(Input.mousePosition.x <= 0
                  || Input.mousePosition.y <= 0
                  || Input.mousePosition.x >= Handles.GetMainGameViewSize().x - 1
                  || Input.mousePosition.y >= Handles.GetMainGameViewSize().y - 1);
+#else
+        return true;
+#endif
 #else
         /*return !(Input.mousePosition.x <= 0
                  || Input.mousePosition.y == 0
