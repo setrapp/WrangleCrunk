@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class LaserSteering : SteeringBehavior
 {
@@ -21,7 +23,7 @@ public class LaserSteering : SteeringBehavior
 	private Vector3 lastKnownDot = Vector3.zero;
 	private Coroutine returnWait = null;
 
-	protected override Vector3 computeDestinationRelative()
+	protected override (Vector3, float) computeDestinationRelative()
 	{
 		var destination = Vector3.zero;
 		var laser = Laser.Instance;
@@ -58,7 +60,7 @@ public class LaserSteering : SteeringBehavior
 			}
 		}
 
-		return destination;
+		return (destination, chasing ? weight : 0);
 	}
 
 	bool LaserActiveNearby()
@@ -121,11 +123,13 @@ public class LaserSteering : SteeringBehavior
 	IEnumerator waitForReturn()
 	{
 		lastKnownDot = Laser.Instance.transform.position;
-		yield return new WaitForSeconds(checkBoredDelay);
+		/*yield return new WaitForSeconds(checkBoredDelay);
 		if (!LaserActiveNearby())
 		{
 			chasing = false;
 			untilExciteCheck = checkExcitedDelay;
-		}
+		}*/
+		chasing = false;
+		yield break;
 	}
 }
