@@ -58,20 +58,20 @@ public class PanAndZoomCamera : MonoBehaviour
     public Vector3 PanDirection(float x, float y)
     {
         Vector3 dir = Vector3.zero;
-        if(y >= Screen.height * .70f)
+        if(y >= Screen.height * .85f)
         {
             dir.y += 1f;
         }
-        else if(y <= Screen.height * .30f)
+        else if(y <= Screen.height * .15f)
         {
             dir.y -= 1f;
         }
 
-        if (x >= Screen.width * .70f)
+        if (x >= Screen.width * .85f)
         {
             dir.x += 1f;
         }
-        else if (x <= Screen.width * .30f)
+        else if (x <= Screen.width * .15f)
         {
             dir.x -= 1f;
         }
@@ -94,16 +94,17 @@ public class PanAndZoomCamera : MonoBehaviour
 
     private bool MouseOnScreen()
     {
+        return true;
 #if UNITY_EDITOR
         return !(Input.mousePosition.x <= 0
                  || Input.mousePosition.y <= 0
                  || Input.mousePosition.x >= Handles.GetMainGameViewSize().x - 1
                  || Input.mousePosition.y >= Handles.GetMainGameViewSize().y - 1);
 #else
-        return !(Input.mousePosition.x <= 0
+        /*return !(Input.mousePosition.x <= 0
                  || Input.mousePosition.y == 0
                  || Input.mousePosition.x >= Screen.width - 1
-                 || Input.mousePosition.y >= Screen.height - 1);
+                 || Input.mousePosition.y >= Screen.height - 1);*/
 #endif
     }
 }
