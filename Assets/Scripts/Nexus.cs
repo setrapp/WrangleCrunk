@@ -16,14 +16,13 @@ namespace DefaultNamespace
 		private void Awake()
 		{
 			Instance = this;
-			countText.text = $"{0 / winCount}";
+			countText.text = $"0 / {winCount}";
 		}
 
 		public void AddToTheFamily()
 		{
 			currentCount++;
-			countText.text = $"{currentCount / winCount}";
-
+			countText.text = $"{currentCount} / {winCount}";
 		}
 	}
 }
