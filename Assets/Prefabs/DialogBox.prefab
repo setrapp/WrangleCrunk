@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 2484245127834698656}
   - component: {fileID: 2484245127834698659}
   - component: {fileID: 1407429594}
+  - component: {fileID: 5072546874384063760}
   m_Layer: 0
   m_Name: DialogBox
   m_TagString: Untagged
@@ -109,6 +110,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1407429594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2484245127834698657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce97727c3d191504b94ab79165456ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5072546874384063760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -805,8 +818,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Well Howdy! We got a bit of a pickle here, all our kitties have run off
-    from the Oasis. You can lead 'em back using laser pointer on your mouse!
+  m_text: Tarnation! All our kitties have run off from the Oasis. Wrangle Crunk!
+    Please lead 'em back! Jus' click to use that there laser pointer!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc3035be66a42ba4da90796af2794fb1, type: 2}
   m_sharedMaterial: {fileID: -2482870011969138189, guid: bc3035be66a42ba4da90796af2794fb1,
@@ -834,8 +847,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
-  m_fontSizeBase: 42
+  m_fontSize: 42.4
+  m_fontSizeBase: 42.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
