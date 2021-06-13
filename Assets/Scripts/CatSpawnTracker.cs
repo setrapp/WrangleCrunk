@@ -12,6 +12,8 @@ public class CatSpawnTracker : MonoBehaviour
 
     private List<CatSpawner> spawners;
 
+    public bool paused = false;
+
     private void Start()
     {
         spawners = new List<CatSpawner>(FindObjectsOfType<CatSpawner>());
@@ -27,7 +29,7 @@ public class CatSpawnTracker : MonoBehaviour
     {
         while (spawning)
         {
-            if(currentCatNumber < targetCatNumber)
+            if(currentCatNumber < targetCatNumber && !paused)
             {
                 SpawnACat();
             }
