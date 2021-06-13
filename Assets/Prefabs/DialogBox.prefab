@@ -806,7 +806,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Tarnation! All our kitties have run off from the Oasis. Wrangle Crunk!
-    Please lead 'em back! Jus' click to use that there laser pointer!
+    Please lead 'em back! Jus' click n' hold to use that there laser pointer!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc3035be66a42ba4da90796af2794fb1, type: 2}
   m_sharedMaterial: {fileID: -2482870011969138189, guid: bc3035be66a42ba4da90796af2794fb1,
