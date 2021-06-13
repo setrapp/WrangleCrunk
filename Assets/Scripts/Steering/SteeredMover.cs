@@ -15,7 +15,7 @@ public class SteeredMover : MonoBehaviour
 	}
 
 	private Rigidbody2D body = null;
-	public Rigidbody2D Body => Body;
+	public Rigidbody2D Body => body;
 
 	private Vector3 up => Vector3.forward;
 	private Vector3 forwardAxis => Vector3.Cross(up, Vector3.right);
@@ -42,6 +42,8 @@ public class SteeredMover : MonoBehaviour
 	// TODO This might be expensive for many instances. Maybe just register listeners without events.
 	public UnityEvent OnMoveBegin = null;
 	public UnityEvent OnMoveEnd = null;
+
+	public bool idle = false;
 
 	private void Start()
 	{
@@ -104,8 +106,10 @@ public class SteeredMover : MonoBehaviour
 			}
 		}
 
+		idle = true;
 		if (destination.sqrMagnitude > Helper.Epsilon && weightSum > Helper.Epsilon)
 		{
+			idle = false;
 			var lookAt = destination.normalized;
 
 			// Arc Cosine is only define in [-1, 1] so prevent Dot Product from rounding error past that.

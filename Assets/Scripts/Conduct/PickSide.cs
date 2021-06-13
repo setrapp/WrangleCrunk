@@ -35,7 +35,12 @@ public class PickSide : MonoBehaviour
 		if (untilSwitch <= 0)
 		{
 			var heading = mover.moveDirection;
-			if (Mathf.Abs(heading.x) > Mathf.Abs(heading.y))
+			if (mover.idle && mover.Body.velocity.sqrMagnitude < 0.1)
+			{
+				anim.SetTrigger("Idle");
+				facing = Facing.None;
+			}
+			else if (Mathf.Abs(heading.x) > Mathf.Abs(heading.y))
 			{
 				if (heading.x > 0)
 				{
