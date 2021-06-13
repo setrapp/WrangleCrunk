@@ -12,7 +12,7 @@ public class WanderSteering : SteeringBehavior
 	private float untilChange = 0;
 	private Vector3 cachedDestination = Vector3.zero;
 
-	protected override Vector3 computeDestinationRelative()
+	protected override (Vector3, float) computeDestinationRelative()
 	{
 		untilChange -= Time.deltaTime;
 		if (untilChange <= 0)
@@ -20,7 +20,7 @@ public class WanderSteering : SteeringBehavior
 			UpdateDestination();
 		}
 
-		return cachedDestination;
+		return (cachedDestination, weight);
 	}
 
 	private void UpdateDestination(float angleFactor = 1)
@@ -29,7 +29,11 @@ public class WanderSteering : SteeringBehavior
 		cachedDestination = Quaternion.Euler(0, 0, changeAngle) * mover.Compass.up;
 		cachedDestination *= destinationDistance;
 		untilChange = changeDelay;
+	}
 
+	public void FlipDirection()
+	{
+		UpdateDestination(1);
 	}
 
 	private void OnEnable()

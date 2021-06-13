@@ -28,8 +28,7 @@ public class SteeredMover : MonoBehaviour
 	private Vector3 externalForce = Vector3.zero;
 
 	List<SteeringBehavior> steeringBehaviors = new List<SteeringBehavior>();
-	List<float> modifiedWeights = new List<float>();
-	List<Vector3> cachedDestinations = new List<Vector3>();
+	List<(Vector3 destination, float weight)> cachedDestinations = new List<(Vector3,float)>();
 
 	[SerializeField] private float maxDestinationDistance = 100;
 
@@ -57,14 +56,12 @@ public class SteeredMover : MonoBehaviour
 	public void RegisterSteering(SteeringBehavior steering)
 	{
 		steeringBehaviors.Add(steering);
-		modifiedWeights.Add(0);
-		cachedDestinations.Add(Vector3.zero);
+		cachedDestinations.Add((Vector3.zero, 0));
 	}
 
 	public void UnregisterSteering(SteeringBehavior steering)
 	{
 		steeringBehaviors.Remove(steering);
-		modifiedWeights.RemoveAt(modifiedWeights.Count -1);
 		cachedDestinations.RemoveAt(cachedDestinations.Count -1);
 	}
 
@@ -80,16 +77,14 @@ public class SteeredMover : MonoBehaviour
 			if (steering == null)
 			{
 				steeringBehaviors.RemoveAt(i);
-				modifiedWeights.RemoveAt(modifiedWeights.Count - 1);
 				cachedDestinations.RemoveAt(cachedDestinations.Count - 1);
 			}
 			else
 			{
-				Vector3 steeringRequest = steering.ComputeDestinationRelative();
-				var modifiedWeight = steering.Weight;// * (1 - Mathf.Min(steeringRequest.sqrMagnitude / maxSqrDist, 1));
+				var steeringRequest = steering.ComputeDestinationRelative();
+				var modifiedWeight = steeringRequest.weight;
 				weightSum += modifiedWeight;
-				modifiedWeights[i] = modifiedWeight;
-				cachedDestinations[i] = steeringRequest.normalized;
+				cachedDestinations[i] = (steeringRequest.destination.normalized, modifiedWeight);
 			}
 		}
 
@@ -99,14 +94,17 @@ public class SteeredMover : MonoBehaviour
 			weightSum = 1;
 		}
 
-		for (int i = steeringBehaviors.Count - 1; i >= 0; i--)
+		if (weightSum > Helper.Epsilon)
 		{
-			var steeringRequest = cachedDestinations[i];
-			steeringRequest *= (modifiedWeights[i] / weightSum);
-			destination += steeringRequest;
+			for (int i = steeringBehaviors.Count - 1; i >= 0; i--)
+			{
+				var steeringRequest = cachedDestinations[i];
+				steeringRequest.weight *= (steeringRequest.weight / weightSum);
+				destination += steeringRequest.destination;
+			}
 		}
 
-		if (destination.sqrMagnitude > Helper.Epsilon)
+		if (destination.sqrMagnitude > Helper.Epsilon && weightSum > Helper.Epsilon)
 		{
 			var lookAt = destination.normalized;
 
@@ -254,7 +252,7 @@ public class SteeredMover : MonoBehaviour
     {
 		MoveStats s = new MoveStats();
 		s.maxSpeed = 0f;
-		s.acceleration = 0f;		
+		s.acceleration = 0f;
 		SetStats(s);
     }
 

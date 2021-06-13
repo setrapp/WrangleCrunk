@@ -37,13 +37,13 @@ public class HerdSteering : SteeringBehavior
 		herdBoss = this;
 	}
 
-	protected override Vector3 computeDestinationRelative()
+	protected override (Vector3, float) computeDestinationRelative()
 	{
 
 		// TODO actually make herding.
 		if (HerdBoss == this)
 		{
-			return Vector3.zero;
+			return (Vector3.zero, 0);
 		}
 		else
 		{
@@ -59,7 +59,7 @@ public class HerdSteering : SteeringBehavior
 				untilUnherd = unherdDelay;
 			}
 
-			return HerdBoss.transform.position - transform.position;
+			return (HerdBoss.transform.position - transform.position, weight);
 		}
 	}
 
